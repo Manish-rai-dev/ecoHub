@@ -11,7 +11,7 @@ const steps = [
     icon: Package,
     title: 'Confirm Quote & Order',
     description:
-      'Receive GST-inclusive pricing with no hidden charges. Minimum order is 1 box per SKU.',
+      'Receive a custom quote with no hidden charges. Minimum order is 1 box per SKU.',
   },
   {
     icon: Truck,

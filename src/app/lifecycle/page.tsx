@@ -38,7 +38,7 @@ const useCases = [
     icon: PartyPopper,
     title: 'Catering & Events',
     description:
-      'Compartment plates for weddings, festivals, and corporate events. Bulk boxes with competitive per-piece pricing.',
+      'Compartment plates for weddings, festivals, and corporate events. Bulk boxes available for large orders.',
   },
   {
     icon: Building2,
@@ -108,7 +108,7 @@ export default function LifecyclePage() {
 
       <WhatsAppCtaStrip
         title="Make the switch to compostable tableware"
-        subtitle="Tell us your monthly volume and we'll recommend the right SKUs and pricing tier."
+        subtitle="Tell us your monthly volume and we'll recommend the right SKUs for your needs."
       />
     </>
   )

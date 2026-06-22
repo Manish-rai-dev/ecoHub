@@ -18,7 +18,7 @@ const contactCards = [
     title: 'Company WhatsApp',
     value: company.whatsapp,
     href: waGeneral(
-      'Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware. Please share product details and pricing.',
+      'Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware. Please share product details.',
     ),
     external: true,
   },

@@ -8,8 +8,8 @@ interface WhatsAppCtaStripProps {
 
 export default function WhatsAppCtaStrip({
   title = 'Ready to switch from plastic?',
-  subtitle = 'Get GST-inclusive pricing, product specs, and delivery timelines — directly from our Varanasi team.',
-  message = 'Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware. Please share product details and pricing.',
+  subtitle = 'Get product specs, custom quotes, and delivery timelines — directly from our Varanasi team.',
+  message = 'Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware. Please share product details.',
 }: WhatsAppCtaStripProps) {
   return (
     <section className="bg-brand-secondary py-12">

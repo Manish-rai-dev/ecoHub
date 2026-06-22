@@ -10,12 +10,12 @@ import { buttonVariants } from '@/components/ui/button'
 import { company } from '@/lib/company'
 import { featuredProductIds, products } from '@/lib/products'
 import { cn } from '@/lib/utils'
-import { ArrowRight, IndianRupee, Leaf, Package, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Factory, Leaf, Package, ShieldCheck } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Eco-Friendly Bagasse Tableware Manufacturer in Varanasi',
   description:
-    'India\'s eco future starts at your table. Premium biodegradable sugarcane bagasse plates and bowls from Yaha Mogi Ecohub LLP — direct pricing, GST inclusive, Purvanchal delivery.',
+    'India\'s eco future starts at your table. Premium biodegradable sugarcane bagasse plates and bowls from Yaha Mogi Ecohub LLP — direct from manufacturer, Purvanchal delivery.',
 }
 
 const jsonLd = {
@@ -41,8 +41,8 @@ const jsonLd = {
 const stats = [
   { value: '12+', label: 'Product SKUs' },
   { value: '90 days', label: 'Biodegradable' },
-  { value: '₹0.85', label: 'Starting price/pc' },
-  { value: '0%', label: 'Hidden charges' },
+  { value: '1 box', label: 'Min. order per SKU' },
+  { value: 'Purvanchal', label: 'Delivery coverage' },
 ]
 
 const whyChooseUs = [
@@ -53,10 +53,10 @@ const whyChooseUs = [
       'Made from sugarcane fibre — a renewable agricultural byproduct. No plastic coating, no foam, no guilt.',
   },
   {
-    icon: IndianRupee,
-    title: 'Direct Manufacturer Pricing',
+    icon: Factory,
+    title: 'Direct from Manufacturer',
     description:
-      'Buy straight from our Varanasi facility. GST-inclusive rates with no middlemen markup.',
+      'Buy straight from our Varanasi facility with no middlemen — reliable supply and dedicated support.',
   },
   {
     icon: Package,
@@ -107,7 +107,7 @@ export default function HomePage() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <WhatsAppButton
-              message="Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware products and pricing."
+              message="Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware products."
               label="WhatsApp Enquiry"
             />
             <Link
@@ -162,7 +162,7 @@ export default function HomePage() {
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-brand-primary">Why Choose Us</h2>
             <p className="mt-2 text-muted-foreground">
-              Trusted by food businesses across Purvanchal for quality, pricing, and reliability
+              Trusted by food businesses across Purvanchal for quality and reliability
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

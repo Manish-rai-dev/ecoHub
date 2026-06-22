@@ -21,7 +21,7 @@ const tiers = [
     featured: false,
     features: [
       'Minimum 1 box per SKU',
-      'GST-inclusive transparent pricing',
+      'Transparent quotes on enquiry',
       'Purvanchal delivery coverage',
       'All 12 SKUs available',
       'WhatsApp order support',
@@ -32,7 +32,7 @@ const tiers = [
     subtitle: 'Regional Partners',
     featured: true,
     features: [
-      'Distributor pricing on all SKUs',
+      'Preferential terms for distributors',
       'Minimum 5 boxes per order',
       'Priority dispatch from Varanasi',
       'Dedicated contact person',

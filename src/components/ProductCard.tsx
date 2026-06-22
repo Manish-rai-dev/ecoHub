@@ -2,12 +2,7 @@
 
 import { LayoutGrid, Soup, UtensilsCrossed } from 'lucide-react'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import {
-  formatBoxTotal,
-  formatPrice,
-  getProductMoq,
-  type Product,
-} from '@/lib/products'
+import { getProductMoq, type Product } from '@/lib/products'
 import { waProductEnquiry } from '@/lib/whatsapp'
 
 const iconMap = {
@@ -26,7 +21,6 @@ export default function ProductCard({ product }: ProductCardProps) {
   function handleEnquiry() {
     const url = waProductEnquiry({
       name: product.name,
-      price: `${formatPrice(product.pricePerPc)}/pc`,
       moq: getProductMoq(product),
     })
     window.open(url, '_blank', 'noopener,noreferrer')
@@ -48,12 +42,8 @@ export default function ProductCard({ product }: ProductCardProps) {
           <span className="font-medium text-foreground">Pcs/Box:</span>{' '}
           {product.pcsPerBox.toLocaleString('en-IN')}
         </p>
-        <p className="text-base font-semibold text-brand-secondary">
-          {formatPrice(product.pricePerPc)}/pc
-        </p>
         <p>
-          <span className="font-medium text-foreground">Box total:</span>{' '}
-          <span className="font-semibold text-brand-primary">{formatBoxTotal(product)}</span>
+          <span className="font-medium text-foreground">MOQ:</span> {getProductMoq(product)}
         </p>
       </CardContent>
       <CardFooter>

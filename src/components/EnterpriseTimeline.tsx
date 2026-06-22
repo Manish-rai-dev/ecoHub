@@ -2,7 +2,7 @@ import { FileText, Handshake, Package, PhoneCall, RefreshCw } from 'lucide-react
 
 const steps = [
   { icon: PhoneCall, title: 'Requirement Call', description: 'Understand your volume, SKUs, and delivery needs' },
-  { icon: FileText, title: 'Custom Quote', description: 'GST-inclusive pricing tailored to your tier' },
+  { icon: FileText, title: 'Custom Quote', description: 'Tailored quote based on your volume and tier' },
   { icon: Handshake, title: 'Agreement', description: 'Confirm terms, payment, and dispatch schedule' },
   { icon: Package, title: 'Dispatch', description: 'Priority fulfilment from our Varanasi facility' },
   { icon: RefreshCw, title: 'Reorder Support', description: 'Dedicated contact for repeat and standing orders' },

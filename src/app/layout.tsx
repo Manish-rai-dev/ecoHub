@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: '%s | Yaha Mogi Ecohub',
   },
   description:
-    'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. Direct from manufacturer — best prices, GST inclusive. Serving restaurants, cloud kitchens, caterers across Purvanchal.',
+    'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. Direct from manufacturer. Serving restaurants, cloud kitchens, caterers across Purvanchal.',
   keywords: [
     'bagasse plates Varanasi',
     'eco friendly tableware UP',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Yaha Mogi Ecohub LLP | Eco-Friendly Bagasse Tableware Varanasi',
     description:
-      'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. Direct from manufacturer — best prices, GST inclusive.',
+      'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. Direct from manufacturer.',
     images: ['/og-image.jpg'],
     locale: 'en_IN',
     type: 'website',
