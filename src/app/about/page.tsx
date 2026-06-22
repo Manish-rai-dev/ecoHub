@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Us — Varanasi Bagasse Tableware Manufacturer',
+  title: 'About Us — Varanasi Bagasse Tableware',
   description:
     'Learn how Yaha Mogi Ecohub LLP is ending single-use plastic one plate at a time — direct sourcing, Varanasi roots, GST compliance, and certified bagasse tableware.',
 }

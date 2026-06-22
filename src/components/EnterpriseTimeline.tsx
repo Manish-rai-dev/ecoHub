@@ -9,7 +9,7 @@ const steps = [
   {
     icon: Package,
     title: 'Custom Quote',
-    description: 'GST-inclusive pricing tailored to your tier',
+    description: 'Tailored to your volume and partnership tier',
   },
   {
     icon: Factory,

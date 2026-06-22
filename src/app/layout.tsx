@@ -15,11 +15,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://yahamogiecohub.com'),
   title: {
-    default: 'Yaha Mogi Ecohub LLP | 15 SKUs Bagasse Tableware | Varanasi',
+    default: 'Yaha Mogi Ecohub LLP | Bagasse Tableware | Varanasi',
     template: '%s | Yaha Mogi Ecohub',
   },
   description:
-    'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. 15 SKUs from ₹0.85/pc — 150ML bowl to 12" 4CP plate. GST & FOR inclusive. Restaurants, cloud kitchens, caterers across Purvanchal.',
+    'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. 15 SKUs — 150ML bowl to 12" 4CP plate. GST & FOR inclusive. Enquire for pricing. Serving restaurants, cloud kitchens and caterers across Purvanchal.',
   keywords: [
     'bagasse plates Varanasi',
     'eco tableware UP',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     'bagasse bowls 2026',
   ],
   openGraph: {
-    title: 'Yaha Mogi Ecohub LLP | 15 SKUs Bagasse Tableware | Varanasi',
+    title: 'Yaha Mogi Ecohub LLP | Bagasse Tableware | Varanasi',
     description:
-      'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. 15 SKUs from ₹0.85/pc. GST & FOR inclusive.',
+      'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. 15 SKUs. GST & FOR inclusive. Enquire for pricing.',
     images: ['/og-image.jpg'],
     locale: 'en_IN',
     type: 'website',

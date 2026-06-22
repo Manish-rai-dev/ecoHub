@@ -8,7 +8,7 @@ interface WhatsAppCtaStripProps {
 
 export default function WhatsAppCtaStrip({
   title = 'Ready to switch from plastic?',
-  subtitle = 'Get product specs, custom quotes, and delivery timelines — directly from our Varanasi team.',
+  subtitle = 'Get product details and delivery timelines — directly from our Varanasi team, Made in India.',
   message = 'Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware. Please share product details.',
 }: WhatsAppCtaStripProps) {
   return (

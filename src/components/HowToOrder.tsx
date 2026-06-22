@@ -9,9 +9,9 @@ const steps = [
   },
   {
     icon: Package,
-    title: 'Confirm Quote & Order',
+    title: 'Confirm Order',
     description:
-      'Receive a custom quote with no hidden charges. Minimum order is 1 box per SKU.',
+      'Receive availability confirmation. Minimum order is 1 box per SKU.',
   },
   {
     icon: Truck,
@@ -28,7 +28,7 @@ export default function HowToOrder() {
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-bold text-brand-primary">How to Order</h2>
           <p className="mt-2 text-muted-foreground">
-            Simple, transparent ordering — direct from the manufacturer
+            Simple, transparent ordering — Made in India, delivered across Purvanchal
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-3">

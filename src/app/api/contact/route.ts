@@ -6,7 +6,7 @@ interface ContactPayload {
   phone: string
   email: string
   company: string
-  productInterest: string
+  productInterests: string[]
   quantity: string
   location: string
   message: string
@@ -15,6 +15,11 @@ interface ContactPayload {
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ContactPayload
+
+    const products =
+      Array.isArray(body.productInterests) && body.productInterests.length > 0
+        ? body.productInterests.join(', ')
+        : 'Not specified'
 
     const { EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, EMAIL_TO } = process.env
 
@@ -41,7 +46,7 @@ export async function POST(request: Request) {
       <p><strong>Phone:</strong> ${body.phone}</p>
       <p><strong>Email:</strong> ${body.email || 'Not provided'}</p>
       <p><strong>Company/Restaurant:</strong> ${body.company || 'Not provided'}</p>
-      <p><strong>Product Interest:</strong> ${body.productInterest}</p>
+      <p><strong>Products:</strong> ${products}</p>
       <p><strong>Quantity (boxes):</strong> ${body.quantity}</p>
       <p><strong>Delivery Location:</strong> ${body.location}</p>
       <p><strong>Message:</strong> ${body.message || 'Not provided'}</p>
@@ -50,7 +55,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: EMAIL_USER,
       to: EMAIL_TO,
-      subject: `Website Enquiry: ${body.name} — ${body.productInterest}`,
+      subject: `Website Enquiry: ${body.name} — ${products.slice(0, 60)}`,
       html,
       replyTo: body.email || undefined,
     })

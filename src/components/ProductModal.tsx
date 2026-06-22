@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import ProductIllustration from '@/components/ProductIllustration'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
-import { categoryLabels, formatBoxTotal, type Product } from '@/lib/products'
+import { categoryLabels, type Product } from '@/lib/products'
 import { waProductEnquiry } from '@/lib/whatsapp'
 import { cn } from '@/lib/utils'
 
@@ -29,8 +29,6 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
       document.body.style.overflow = ''
     }
   }, [product, onClose])
-
-  const boxTotal = product ? formatBoxTotal(product) : null
 
   return (
     <AnimatePresence>
@@ -69,7 +67,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             </div>
 
             <div className="flex-1 overflow-y-auto pb-28">
-              <div className="bg-brand-cream px-6 py-6 text-center">
+              <div className="bg-[#f5f0e8] px-6 py-6 text-center">
                 <div className="flex justify-center">
                   <ProductIllustration shape={product.shape} size="lg" />
                 </div>
@@ -80,24 +78,15 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 )}
               </div>
 
-              <div className="space-y-1 px-5 py-4">
-                {product.pricePerPc !== null ? (
-                  <p className="text-2xl font-semibold text-brand-primary">
-                    ₹{product.pricePerPc.toFixed(2)}/pc
-                  </p>
-                ) : (
-                  <p className="text-sm italic text-muted-foreground">
-                    Price on request — enquire via WhatsApp
-                  </p>
-                )}
-                {boxTotal && (
-                  <p className="text-sm text-muted-foreground">
-                    Box of {product.pcsPerBox.toLocaleString('en-IN')} pcs = {boxTotal}
-                  </p>
-                )}
+              <div className="space-y-1 border-b border-brand-light px-5 py-4">
+                <p className="font-medium text-brand-primary">Pricing available on enquiry.</p>
+                <p className="text-sm text-muted-foreground">
+                  Contact us via WhatsApp or phone for a custom quote based on your volume and
+                  delivery location.
+                </p>
               </div>
 
-              <div className="px-5 pb-4">
+              <div className="px-5 py-4">
                 <p className="text-sm leading-relaxed text-muted-foreground">{product.description}</p>
               </div>
 
@@ -108,7 +97,6 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                   ['Pack size', `${product.pcsPerPack} pcs/pack`],
                   ['Min. order', '1 box'],
                   ['Category', categoryLabels[product.category]],
-                  ['Box total', boxTotal ?? 'Enquire'],
                 ].map(([label, value], i) => (
                   <div
                     key={label}
@@ -147,7 +135,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               </div>
 
               <p className="px-5 pb-4 text-xs italic text-muted-foreground">
-                All prices inclusive of GST &amp; FOR. Weight ±10% due to natural raw materials.
+                GST &amp; FOR inclusive. Weight ±10% due to natural raw materials. Pricing on enquiry.
               </p>
             </div>
 

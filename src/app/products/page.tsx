@@ -5,7 +5,7 @@ import ProductGrid from '@/components/ProductGrid'
 export const metadata: Metadata = {
   title: 'Products — Bagasse Plates & Bowls Wholesale',
   description:
-    'Browse all 15 SKUs of biodegradable bagasse tableware — bowls, round plates, and compartment plates. Min. order 1 box per SKU.',
+    'Browse all 15 SKUs of biodegradable bagasse tableware — bowls, round plates, and compartment plates. Min. order 1 box per SKU. Enquire for pricing.',
 }
 
 export default function ProductsPage() {
@@ -14,11 +14,11 @@ export default function ProductsPage() {
       <section className="bg-brand-primary py-12 text-white md:py-16">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <span className="mb-4 inline-block rounded-full border border-brand-accent/40 bg-brand-secondary px-3 py-1 text-xs font-medium text-brand-text-on-green">
-            15 SKUs · All prices GST &amp; FOR inclusive · Min. 1 box/SKU
+            15 SKUs · GST &amp; FOR inclusive · Min. 1 box/SKU
           </span>
           <h1 className="text-3xl font-bold md:text-4xl">All Products</h1>
           <p className="mt-4 max-w-2xl text-brand-text-on-green">
-            Click any product to view full specs and enquire directly on WhatsApp.
+            Select one or more products to enquire directly on WhatsApp.
           </p>
         </div>
       </section>
@@ -31,9 +31,8 @@ export default function ProductsPage() {
 
           <div className="mt-8 rounded-lg border border-brand-secondary/30 bg-brand-light p-4">
             <p className="text-sm text-brand-primary">
-              All prices inclusive of GST &amp; FOR. Weights approx ±10% due to natural raw materials.
-              Minimum order: 1 box per SKU. Wholesale &amp; distributor pricing available separately —
-              enquire via WhatsApp.
+              GST &amp; FOR inclusive. Weights approx ±10% due to natural raw materials. Minimum
+              order: 1 box per SKU. Pricing available on enquiry — contact us via WhatsApp or phone.
             </p>
           </div>
         </div>

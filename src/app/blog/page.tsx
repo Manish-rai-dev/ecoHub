@@ -6,7 +6,7 @@ import { ArrowLeft } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Blog — Eco Tableware Insights',
   description:
-    'Articles on bagasse sustainability, restaurant cost savings, and India\'s single-use plastic ban from Yaha Mogi Ecohub LLP.',
+    'Articles on bagasse sustainability, restaurant tips, and India\'s single-use plastic ban from Yaha Mogi Ecohub LLP.',
 }
 
 const posts = [
@@ -18,18 +18,18 @@ const posts = [
       'Every year, millions of tonnes of sugarcane bagasse are incinerated across India. Here is how Yaha Mogi Ecohub is turning that waste into tableware.',
   },
   {
-    slug: 'cloud-kitchen-savings',
-    title: 'How switching to bagasse plates can save your cloud kitchen ₹18,000/year',
+    slug: 'cloud-kitchen-eco',
+    title: 'How switching to bagasse plates can save your cloud kitchen money',
     category: 'For Restaurants',
     excerpt:
-      'A practical breakdown of cost, compliance, and customer perception when you replace plastic with compostable bagasse.',
+      'A practical breakdown of compliance and customer perception when you replace plastic with compostable bagasse.',
   },
   {
     slug: 'sup-ban-varanasi-2026',
     title: "India's single-use plastic ban: a guide for Varanasi restaurants in 2026",
     category: 'Policy',
     excerpt:
-      'What the SUP ban means for dhabas, cloud kitchens, and caterers in Purvanchal — and how to stay compliant without breaking the bank.',
+      'What the SUP ban means for dhabas, cloud kitchens, and caterers in Purvanchal — and how to stay compliant.',
   },
 ]
 

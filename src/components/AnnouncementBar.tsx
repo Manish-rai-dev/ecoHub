@@ -1,5 +1,5 @@
 const announcementText =
-  'Free delivery across Varanasi & Purvanchal  ·  All prices GST & FOR inclusive  ·  100% Biodegradable in 90–150 days  ·  15 SKUs available  ·  WhatsApp: +91 9452936267  ·  Minimum 1 box per SKU  ·  Bulk & distributor orders welcome'
+  'Free delivery across Varanasi & Purvanchal  ·  GST & FOR inclusive  ·  100% Biodegradable in 90–150 days  ·  15 SKUs available  ·  WhatsApp: +91 9452936267  ·  Minimum 1 box per SKU  ·  Bulk & distributor orders welcome'
 
 export default function AnnouncementBar() {
   return (

@@ -113,7 +113,7 @@ export default function Navbar() {
               'hidden bg-brand-accent font-semibold text-brand-primary hover:bg-brand-accent/90 sm:inline-flex',
             )}
           >
-            Order Now
+            Enquire Now
           </Link>
 
           <button
@@ -184,7 +184,7 @@ export default function Navbar() {
                 'mt-2 bg-brand-accent font-semibold text-brand-primary hover:bg-brand-accent/90',
               )}
             >
-              Order Now
+              Enquire Now
             </Link>
           </nav>
         </div>

@@ -11,9 +11,9 @@ import { cn } from '@/lib/utils'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Eco-Friendly Bagasse Tableware Manufacturer in Varanasi',
+  title: 'Eco-Friendly Bagasse Tableware in Varanasi',
   description:
-    'Premium biodegradable sugarcane bagasse plates and bowls from Yaha Mogi Ecohub LLP — 15 SKUs from ₹0.85/pc, direct from manufacturer, Purvanchal delivery.',
+    'Premium biodegradable sugarcane bagasse plates and bowls from Yaha Mogi Ecohub LLP — 15 SKUs, Made in India, Purvanchal delivery.',
 }
 
 const jsonLd = {
@@ -37,8 +37,8 @@ const jsonLd = {
 
 const heroStats = [
   { value: '93%', label: 'Lower CO₂ than paper' },
-  { value: '90–150d', label: 'Biodegrades fully' },
-  { value: '₹0.85', label: 'Starting price/pc' },
+  { value: '90–150 days', label: 'Biodegrades fully' },
+  { value: '15 SKUs', label: 'Available now' },
 ]
 
 const impactBar = [
@@ -99,7 +99,7 @@ const blogPosts = [
     category: 'Sustainability',
   },
   {
-    title: 'How switching to bagasse plates can save your cloud kitchen ₹18,000/year',
+    title: 'How switching to bagasse plates can save your cloud kitchen money',
     category: 'For Restaurants',
   },
   {
@@ -128,9 +128,8 @@ export default function HomePage() {
               <em className="text-brand-accent not-italic">the planet</em>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-brand-text-on-green">
-              Premium bagasse tableware direct from manufacturer. 15 SKUs from ₹0.85/pc. No
-              middlemen, no hidden charges. Serving restaurants, cloud kitchens and caterers across
-              Purvanchal.
+              Premium bagasse tableware — direct from manufacturer. 15 SKUs. No middlemen, no hidden
+              charges. Serving restaurants, cloud kitchens and caterers across Purvanchal.
             </p>
             <p className="mt-4 text-sm text-brand-text-on-green">
               🛡️ Safe for your food · Safe for kids · Safe for the earth
@@ -146,8 +145,8 @@ export default function HomePage() {
                 Shop All Products
               </Link>
               <WhatsAppButton
-                message="Hi! I would like to order Yaha Mogi Ecohub bagasse tableware."
-                label="WhatsApp Order"
+                message="Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware."
+                label="WhatsApp Enquiry"
               />
               <Link
                 href="/enterprise"
@@ -332,7 +331,7 @@ export default function HomePage() {
           <div className="mt-8 flex justify-center">
             <WhatsAppButton
               message="Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware."
-              label="Chat on WhatsApp"
+              label="WhatsApp Enquiry"
             />
           </div>
         </div>

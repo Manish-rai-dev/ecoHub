@@ -1,4 +1,4 @@
-// ─────────────────────────────────────────────
+﻿// ─────────────────────────────────────────────
 // lib/products.ts — Yaha Mogi Ecohub LLP
 // Source: verified inventory sheets June 2026
 // ─────────────────────────────────────────────
@@ -12,7 +12,6 @@ export interface Product {
   grammage: string
   pcsPerBox: number
   pcsPerPack: number
-  pricePerPc: number | null
   category: Category
   description: string
   features: string[]
@@ -20,6 +19,7 @@ export interface Product {
   shape: 'bowl-sm' | 'bowl-md' | 'bowl-lg' | 'plate-round' | 'plate-3cp-rect' | 'plate-3cp-round' | 'plate-4cp-round' | 'plate-snack'
   badge?: string
 }
+// NOTE: pricePerPc is intentionally omitted. All pricing is by enquiry only.
 
 export const products: Product[] = [
   {
@@ -29,7 +29,6 @@ export const products: Product[] = [
     grammage: '4 GM ±10%',
     pcsPerBox: 2700,
     pcsPerPack: 50,
-    pricePerPc: 0.85,
     category: 'bowls',
     description: 'Compact sauce and chutney bowl. Perfect for thali setups and condiment service.',
     features: ['Leak resistant', 'Microwave safe', 'Freezer safe', 'Food grade certified', 'Oil resistant'],
@@ -44,7 +43,6 @@ export const products: Product[] = [
     grammage: '4.5 GM ±10%',
     pcsPerBox: 2400,
     pcsPerPack: 50,
-    pricePerPc: 0.9,
     category: 'bowls',
     description: 'Slightly larger than the 150ML — ideal for dal, raita and dessert portions.',
     features: ['Leak resistant', 'Microwave safe', 'Freezer safe', 'Food grade certified'],
@@ -58,7 +56,6 @@ export const products: Product[] = [
     grammage: '8 GM ±10%',
     pcsPerBox: 2000,
     pcsPerPack: 25,
-    pricePerPc: 1.6,
     category: 'bowls',
     description: 'Our most popular bowl — perfect for biryani, noodles and hearty curries.',
     features: ['Deep walls', 'Leak resistant', 'Microwave safe', 'Food grade certified', 'Oil resistant'],
@@ -73,7 +70,6 @@ export const products: Product[] = [
     grammage: '6 GM ±10%',
     pcsPerBox: 2000,
     pcsPerPack: 50,
-    pricePerPc: null,
     category: 'bowls',
     description: 'Mid-size bowl for soups, single-serve desserts and medium curry portions.',
     features: ['Leak resistant', 'Microwave safe', 'Freezer safe', 'Food grade certified'],
@@ -88,7 +84,6 @@ export const products: Product[] = [
     grammage: '5.2 GM ±10%',
     pcsPerBox: 2400,
     pcsPerPack: 50,
-    pricePerPc: 1.08,
     category: 'plates',
     description: 'Small round plate for starters, snacks and kids meals. Ideal for snack stations.',
     features: ['Sturdy rim', 'Food grade certified', 'Water & oil proof', 'Microwave safe'],
@@ -102,7 +97,6 @@ export const products: Product[] = [
     grammage: '7.5 GM ±10%',
     pcsPerBox: 1800,
     pcsPerPack: 50,
-    pricePerPc: 1.52,
     category: 'plates',
     description: 'Versatile mid-size round plate for starters, snacks and side dishes.',
     features: ['Deep rim', 'Microwave safe', 'Freezer safe', 'Water & oil proof'],
@@ -116,7 +110,6 @@ export const products: Product[] = [
     grammage: '14 GM ±10%',
     pcsPerBox: 1000,
     pcsPerPack: 25,
-    pricePerPc: 2.45,
     category: 'plates',
     description: 'Full-size dinner plate for restaurants and catering. Holds full meals without flexing.',
     features: ['Heavy duty', 'Deep rim', 'Microwave safe', 'Water & oil proof', 'Food grade certified'],
@@ -131,7 +124,6 @@ export const products: Product[] = [
     grammage: '16 GM ±10%',
     pcsPerBox: 1000,
     pcsPerPack: 25,
-    pricePerPc: 3.15,
     category: 'plates',
     description: 'Large dinner plate suitable for generous portions and full thali-style service.',
     features: ['Extra sturdy', 'Microwave safe', 'Freezer safe', 'Food grade certified'],
@@ -145,7 +137,6 @@ export const products: Product[] = [
     grammage: '20 GM ±10%',
     pcsPerBox: 600,
     pcsPerPack: 25,
-    pricePerPc: 3.35,
     category: 'plates',
     description: 'Premium large plate for upscale catering and full-course dinner service.',
     features: ['Premium thickness', 'Microwave safe', 'Water & oil proof', 'Food grade certified'],
@@ -159,7 +150,6 @@ export const products: Product[] = [
     grammage: '27 GM ±10%',
     pcsPerBox: 500,
     pcsPerPack: 25,
-    pricePerPc: null,
     category: 'plates',
     description: 'Largest round plate — for generous thali spreads and large event catering.',
     features: ['Maximum size', 'Extra sturdy', 'Microwave safe', 'Food grade certified'],
@@ -174,7 +164,6 @@ export const products: Product[] = [
     grammage: '17 GM ±10%',
     pcsPerBox: 1000,
     pcsPerPack: 25,
-    pricePerPc: null,
     category: 'compartment',
     description: 'Rectangular 3-compartment plate — ideal for cloud kitchen packaging and meal-prep delivery.',
     features: ['3 sections', 'Rectangle format', 'Microwave safe', 'Leak resistant', 'Food grade certified'],
@@ -189,7 +178,6 @@ export const products: Product[] = [
     grammage: '17.5 GM ±10%',
     pcsPerBox: 700,
     pcsPerPack: 25,
-    pricePerPc: 3.15,
     category: 'compartment',
     description: 'Classic 3-compartment round plate — perfect thali layout in eco-friendly bagasse.',
     features: ['3 sections', 'Round format', 'Microwave safe', 'Food grade certified', 'Oil resistant'],
@@ -204,7 +192,6 @@ export const products: Product[] = [
     grammage: '22 GM ±10%',
     pcsPerBox: 600,
     pcsPerPack: 25,
-    pricePerPc: 3.42,
     category: 'compartment',
     description: '4-compartment round plate — for full thali with main, dal, sabzi and salad.',
     features: ['4 sections', 'Microwave safe', 'Water & oil proof', 'Food grade certified'],
@@ -218,7 +205,6 @@ export const products: Product[] = [
     grammage: '27 GM ±10%',
     pcsPerBox: 500,
     pcsPerPack: 25,
-    pricePerPc: 4.6,
     category: 'compartment',
     description: 'Largest compartment plate — perfect for wedding buffets and full thali service.',
     features: ['4 sections', 'Premium size', 'Microwave safe', 'Food grade certified', 'Heavy duty'],
@@ -233,7 +219,6 @@ export const products: Product[] = [
     grammage: '3.5 GM ±10%',
     pcsPerBox: 3000,
     pcsPerPack: 20,
-    pricePerPc: null,
     category: 'special',
     description: 'Lightweight shallow snack plate for samosas, pakoras, chaat and dry finger foods.',
     features: ['Shallow design', 'Oil resistant', 'Food grade certified', 'Sturdy enough for dry foods'],
@@ -257,11 +242,6 @@ export const featuredProductIds = [3, 12, 14]
 
 export function getProductById(id: number): Product | undefined {
   return products.find((p) => p.id === id)
-}
-
-export function formatBoxTotal(product: Product): string | null {
-  if (product.pricePerPc === null) return null
-  return `₹${(product.pricePerPc * product.pcsPerBox).toLocaleString('en-IN')}`
 }
 
 export const categoryLabels: Record<Category | 'all', string> = {

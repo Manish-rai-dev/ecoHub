@@ -23,7 +23,7 @@ const tiers = [
       'Min. 1 box/SKU',
       'GST inclusive',
       'Purvanchal delivery',
-      'WhatsApp orders',
+      'WhatsApp enquiry',
     ],
   },
   {
@@ -31,7 +31,7 @@ const tiers = [
     subtitle: 'Regional partners',
     featured: true,
     features: [
-      'Distributor pricing',
+      'Distributor pricing on enquiry',
       'Min. 5 boxes/order',
       'Priority dispatch',
       'Dedicated contact',
@@ -55,7 +55,7 @@ const whyPartner = [
   {
     icon: Users,
     title: 'No middlemen',
-    description: 'Buy direct from the manufacturer — margins protected.',
+    description: 'Buy direct from Yaha Mogi Ecohub — margins protected.',
   },
   {
     icon: IndianRupee,

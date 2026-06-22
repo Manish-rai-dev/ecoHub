@@ -2,18 +2,11 @@
 
 import { useState } from 'react'
 import { toast } from 'sonner'
+import ProductMultiSelect from '@/components/ProductMultiSelect'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { products } from '@/lib/products'
 import { waGeneral } from '@/lib/whatsapp'
 
 interface FormData {
@@ -21,7 +14,6 @@ interface FormData {
   phone: string
   email: string
   company: string
-  productInterest: string
   quantity: string
   location: string
   message: string
@@ -32,7 +24,6 @@ const initialForm: FormData = {
   phone: '',
   email: '',
   company: '',
-  productInterest: '',
   quantity: '',
   location: '',
   message: '',
@@ -40,6 +31,7 @@ const initialForm: FormData = {
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormData>(initialForm)
+  const [selectedProducts, setSelectedProducts] = useState<string[]>([])
   const [submitting, setSubmitting] = useState(false)
 
   function updateField(field: keyof FormData, value: string) {
@@ -48,19 +40,24 @@ export default function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+
+    if (selectedProducts.length === 0) {
+      toast.error('Please select at least one product.')
+      return
+    }
+
     setSubmitting(true)
 
     const whatsappMessage = [
-      'Hi! I would like to enquire about Yaha Mogi Ecohub bagasse tableware.',
-      '',
-      `*Name:* ${form.name}`,
-      `*Phone:* ${form.phone}`,
-      `*Email:* ${form.email}`,
-      `*Company/Restaurant:* ${form.company}`,
-      `*Product Interest:* ${form.productInterest}`,
-      `*Quantity Required (boxes):* ${form.quantity}`,
-      `*Delivery Location:* ${form.location}`,
-      form.message ? `*Message:* ${form.message}` : '',
+      "Hi! I'd like to enquire about the following from Yaha Mogi Ecohub LLP:",
+      `Products: ${selectedProducts.join(', ')}`,
+      `Quantity: ${form.quantity} boxes`,
+      `Delivery: ${form.location}`,
+      `Name: ${form.name} | Phone: ${form.phone}`,
+      form.email ? `Email: ${form.email}` : '',
+      form.company ? `Company/Restaurant: ${form.company}` : '',
+      form.message ? `Message: ${form.message}` : '',
+      'Please share pricing and availability.',
     ]
       .filter(Boolean)
       .join('\n')
@@ -69,7 +66,10 @@ export default function ContactForm() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          productInterests: selectedProducts,
+        }),
       })
 
       const data = (await response.json()) as { success: boolean; error?: string }
@@ -131,27 +131,7 @@ export default function ContactForm() {
             placeholder="Business name"
           />
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="productInterest">Product Interest *</Label>
-          <Select
-            required
-            value={form.productInterest}
-            onValueChange={(value) => value && updateField('productInterest', value)}
-          >
-            <SelectTrigger id="productInterest" className="w-full">
-              <SelectValue placeholder="Select a product" />
-            </SelectTrigger>
-            <SelectContent>
-              {products.map((product) => (
-                <SelectItem key={product.id} value={product.displayName}>
-                  {product.displayName}
-                </SelectItem>
-              ))}
-              <SelectItem value="Multiple products">Multiple products</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-2">
+        <div className="space-y-2 sm:col-span-2">
           <Label htmlFor="quantity">Quantity Required (boxes) *</Label>
           <Input
             id="quantity"
@@ -162,6 +142,12 @@ export default function ContactForm() {
           />
         </div>
       </div>
+
+      <div className="space-y-2">
+        <Label>Product Interest * (select one or more)</Label>
+        <ProductMultiSelect selected={selectedProducts} onChange={setSelectedProducts} />
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="location">Delivery Location *</Label>
         <Input
