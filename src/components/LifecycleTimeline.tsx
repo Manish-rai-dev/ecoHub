@@ -5,38 +5,49 @@ const steps = [
     icon: Sprout,
     title: 'Origin',
     description:
-      'Sugarcane is harvested across India. Bagasse — the fibrous residue after juice extraction — becomes our raw material instead of being burned or discarded.',
+      'Sugarcane harvest — bagasse extracted as agricultural byproduct',
+    highlight: false,
   },
   {
     icon: Factory,
     title: 'Manufacturing',
     description:
-      'At our Varanasi facility, bagasse pulp is moulded into plates and bowls — no plastic coating, no harmful chemicals. Every piece is food-grade and leak resistant.',
+      'Heat-pressed into food-grade tableware — no bleach, no plastic binders',
+    highlight: false,
   },
   {
     icon: Truck,
     title: 'Delivery',
     description:
-      'Products are packed in bulk boxes and dispatched directly to restaurants, caterers, and institutions across Purvanchal and beyond.',
+      'Shipped in bulk boxes to restaurants, caterers and institutions',
+    highlight: false,
   },
   {
     icon: UtensilsCrossed,
     title: 'In-Use',
     description:
-      'Safe for hot and cold food. Microwave and freezer friendly. Sturdy enough for full meals — from thali service to buffet catering.',
+      'Microwave safe, freezer safe, oil resistant — performs like any plate',
+    highlight: false,
   },
   {
     icon: Recycle,
-    title: 'Day 1–30 Composting',
+    title: 'Day 1–30',
     description:
-      'After use, bagasse tableware begins breaking down in compost or soil. No microplastics. No toxic residue.',
+      'Composting begins — visible breakdown of cellulose fibres in moist soil',
     highlight: false,
   },
   {
     icon: Leaf,
-    title: 'Day 90 Fully Biodegraded',
+    title: 'Day 30–90',
     description:
-      'Within approximately 90 days, the product returns completely to nature — closing the loop from field to table to earth.',
+      'Over 50% mass broken down. Microbial activity accelerates decomposition.',
+    highlight: false,
+  },
+  {
+    icon: Leaf,
+    title: 'Day 90–150',
+    description:
+      'Fully biodegraded in compost conditions. Returns to soil as organic matter. Zero microplastic residue.',
     highlight: true,
   },
 ]

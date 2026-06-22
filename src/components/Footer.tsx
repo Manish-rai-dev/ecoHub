@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, MapPin, Phone } from 'lucide-react'
 import { company } from '@/lib/company'
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -22,36 +22,56 @@ function InstagramIcon({ className }: { className?: string }) {
   )
 }
 
-const navLinks = [
-  { href: '/', label: 'Home' },
+const productLinks = [
+  { href: '/products?cat=bowls', label: 'Bowls' },
+  { href: '/products?cat=plates', label: 'Round Plates' },
+  { href: '/products?cat=compartment', label: 'Compartment Plates' },
+  { href: '/products?cat=special', label: 'Special Range' },
+]
+
+const companyLinks = [
   { href: '/about', label: 'About' },
-  { href: '/products', label: 'Products' },
   { href: '/lifecycle', label: 'Lifecycle' },
   { href: '/enterprise', label: 'Enterprise' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/blog', label: 'Blog' },
 ]
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-primary text-brand-text-on-green">
+    <footer className="bg-brand-dark text-brand-text-on-green">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-2 lg:grid-cols-4 md:px-6">
         <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-brand-accent bg-brand-secondary text-sm font-bold text-white">
-              YM
-            </div>
-            <div>
-              <p className="font-semibold text-white">{company.name}</p>
-              <p className="text-sm">{company.tagline}</p>
-            </div>
-          </div>
-          <p className="text-sm italic text-brand-accent">{company.motto}</p>
+          <Link href="/">
+            <Image
+              src="/logo-light.png"
+              alt="Yaha Mogi Ecohub LLP"
+              width={144}
+              height={36}
+              className="h-9 w-auto"
+            />
+          </Link>
+          <p className="text-sm italic">{company.tagline}</p>
+          <p className="text-xs">GSTIN: {company.gstin}</p>
+          <p className="text-sm">{company.address.full}</p>
         </div>
 
         <div>
-          <h3 className="mb-4 font-semibold text-white">Quick Links</h3>
+          <h3 className="mb-4 font-semibold text-white">Products</h3>
           <ul className="space-y-2 text-sm">
-            {navLinks.map((link) => (
+            {productLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="transition-colors hover:text-brand-accent">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="mb-4 font-semibold text-white">Company</h3>
+          <ul className="space-y-2 text-sm">
+            {companyLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="transition-colors hover:text-brand-accent">
                   {link.label}
@@ -63,45 +83,42 @@ export default function Footer() {
 
         <div>
           <h3 className="mb-4 font-semibold text-white">Contact</h3>
-          <ul className="space-y-3 text-sm">
-            <li className="flex items-start gap-2">
-              <Phone className="mt-0.5 h-4 w-4 shrink-0" />
+          <ul className="space-y-2 text-sm">
+            <li>
               <a href={`tel:${company.whatsapp.replace(/\s/g, '')}`} className="hover:text-brand-accent">
                 {company.whatsapp}
               </a>
             </li>
-            <li className="flex items-start gap-2">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0" />
+            {company.directors.map((director) => (
+              <li key={director.name}>
+                {director.name}:{' '}
+                <a href={`tel:${director.phone.replace(/\s/g, '')}`} className="hover:text-brand-accent">
+                  {director.phone}
+                </a>
+              </li>
+            ))}
+            <li>
               <a href={`mailto:${company.email}`} className="hover:text-brand-accent">
                 {company.email}
               </a>
             </li>
-            <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-              <span>{company.address.full}</span>
+            <li>
+              <a
+                href={company.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-brand-accent"
+              >
+                <InstagramIcon className="h-4 w-4" />
+                {company.instagram}
+              </a>
             </li>
           </ul>
-        </div>
-
-        <div>
-          <h3 className="mb-4 font-semibold text-white">Follow Us</h3>
-          <a
-            href={company.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm transition-colors hover:text-brand-accent"
-          >
-            <InstagramIcon className="h-4 w-4" />
-            {company.instagram}
-          </a>
-          <p className="mt-6 text-xs text-brand-text-on-green/80">
-            GSTIN: {company.gstin}
-          </p>
         </div>
       </div>
 
       <div className="border-t border-brand-secondary/50 py-4 text-center text-xs text-brand-text-on-green/80">
-        © {new Date().getFullYear()} {company.name}. All rights reserved.
+        © 2026 {company.name} · GSTIN {company.gstin} | Choose Nature, Choose Future 🌿
       </div>
     </footer>
   )

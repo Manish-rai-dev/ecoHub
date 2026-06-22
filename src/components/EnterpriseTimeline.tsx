@@ -1,17 +1,37 @@
-import { FileText, Handshake, Package, PhoneCall, RefreshCw } from 'lucide-react'
+import { Factory, Leaf, Package, PhoneCall, RefreshCw } from 'lucide-react'
 
 const steps = [
-  { icon: PhoneCall, title: 'Requirement Call', description: 'Understand your volume, SKUs, and delivery needs' },
-  { icon: FileText, title: 'Custom Quote', description: 'Tailored quote based on your volume and tier' },
-  { icon: Handshake, title: 'Agreement', description: 'Confirm terms, payment, and dispatch schedule' },
-  { icon: Package, title: 'Dispatch', description: 'Priority fulfilment from our Varanasi facility' },
-  { icon: RefreshCw, title: 'Reorder Support', description: 'Dedicated contact for repeat and standing orders' },
+  {
+    icon: PhoneCall,
+    title: 'Requirement Call',
+    description: 'Understand your volume, SKUs, and delivery needs',
+  },
+  {
+    icon: Package,
+    title: 'Custom Quote',
+    description: 'GST-inclusive pricing tailored to your tier',
+  },
+  {
+    icon: Factory,
+    title: 'PO/WA Confirmation',
+    description: 'Confirm purchase order or WhatsApp order details',
+  },
+  {
+    icon: Leaf,
+    title: 'Priority Dispatch',
+    description: 'Priority fulfilment from our Varanasi facility',
+  },
+  {
+    icon: RefreshCw,
+    title: 'Reorder Support',
+    description: 'Dedicated contact for repeat and standing orders',
+  },
 ]
 
 export default function EnterpriseTimeline() {
   return (
     <div className="overflow-x-auto pb-4">
-      <div className="flex min-w-[640px] items-start justify-between gap-2">
+      <div className="flex min-w-[720px] items-start justify-between gap-2">
         {steps.map((step, index) => (
           <div key={step.title} className="relative flex flex-1 flex-col items-center text-center">
             {index < steps.length - 1 && (

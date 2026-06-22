@@ -9,7 +9,12 @@
   --color-brand-secondary: #2d6e34;
   --color-brand-accent: #e8b84b;
   --color-brand-light: #f0f7f0;
+  --color-brand-dark: #0f2e12;
+  --color-brand-orange: #e8661a;
+  --color-brand-cream: #f5eed8;
+  --color-brand-tan: #c4a96b;
   --color-brand-text-on-green: #cde9cc;
+  --color-wa: #25d366;
   --color-whatsapp: #25d366;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -133,4 +138,25 @@
   html {
     @apply font-sans;
   }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-inner {
+  animation: marquee 28s linear infinite;
+  white-space: nowrap;
+  display: inline-flex;
+}
+
+.marquee-inner-slow {
+  animation: marquee 32s linear infinite;
+  white-space: nowrap;
+  display: inline-flex;
 }

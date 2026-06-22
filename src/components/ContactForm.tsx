@@ -143,8 +143,8 @@ export default function ContactForm() {
             </SelectTrigger>
             <SelectContent>
               {products.map((product) => (
-                <SelectItem key={product.id} value={product.name}>
-                  {product.name}
+                <SelectItem key={product.id} value={product.displayName}>
+                  {product.displayName}
                 </SelectItem>
               ))}
               <SelectItem value="Multiple products">Multiple products</SelectItem>
@@ -185,7 +185,7 @@ export default function ContactForm() {
       <Button
         type="submit"
         disabled={submitting}
-        className="w-full bg-whatsapp text-white hover:bg-whatsapp/90 sm:w-auto"
+        className="w-full bg-wa text-white hover:bg-wa/90 sm:w-auto"
       >
         {submitting ? 'Submitting...' : 'Submit & open WhatsApp'}
       </Button>

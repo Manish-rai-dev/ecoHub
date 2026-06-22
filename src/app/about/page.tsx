@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import ComparisonTable from '@/components/ComparisonTable'
 import WhatsAppCtaStrip from '@/components/WhatsAppCtaStrip'
 import { company } from '@/lib/company'
 import {
@@ -47,7 +48,7 @@ const storyCards = [
 ]
 
 const bagassePoints = [
-  '100% biodegradable in ~90 days',
+  '100% biodegradable in 90–150 days',
   'Made from renewable sugarcane fibre',
   'Zero microplastics released',
   'Microwave & freezer safe',
@@ -67,7 +68,7 @@ const certifications = [
   { icon: Award, title: 'Biodegradable', description: 'Breaks down naturally in compost' },
   { icon: Factory, title: 'ISO Practices', description: 'Quality-controlled manufacturing' },
   { icon: Building2, title: 'GST Registered', description: company.gstin },
-  { icon: CheckCircle2, title: 'Compostable', description: 'Returns to soil within 90 days' },
+  { icon: CheckCircle2, title: 'Compostable', description: 'Returns to soil within 90–150 days' },
   { icon: Sprout, title: 'Eco Certified', description: 'Sustainable byproduct utilisation' },
 ]
 
@@ -105,21 +106,27 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <ComparisonTable />
+        </div>
+      </section>
+
       <section className="bg-brand-light py-16">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <h2 className="mb-10 text-center text-3xl font-bold text-brand-primary">
             Bagasse vs Plastic
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border-2 border-green-600 bg-white p-6">
-              <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-green-700">
+            <div className="rounded-xl border-2 border-brand-secondary bg-white p-6">
+              <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-brand-primary">
                 <CheckCircle2 className="h-5 w-5" />
                 Sugarcane Bagasse
               </h3>
               <ul className="space-y-3">
                 {bagassePoints.map((point) => (
                   <li key={point} className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-600" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-secondary" />
                     {point}
                   </li>
                 ))}

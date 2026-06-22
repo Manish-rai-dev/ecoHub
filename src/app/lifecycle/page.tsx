@@ -4,14 +4,24 @@ import WhatsAppCtaStrip from '@/components/WhatsAppCtaStrip'
 import { Building2, ChefHat, PartyPopper } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Product Lifecycle — Field to Compost in 90 Days',
+  title: 'Product Lifecycle — Field to Compost in 90–150 Days',
   description:
-    'Follow the journey of Yaha Mogi bagasse tableware from sugarcane fields through manufacturing, use, and full biodegradation in 90 days — zero microplastics.',
+    'Follow the journey of Yaha Mogi bagasse tableware from sugarcane fields through manufacturing, use, and full biodegradation in 90–150 days — zero microplastics.',
 }
 
 const impactMetrics = [
   {
-    value: '90 days',
+    value: '93%',
+    label: 'CO₂ vs paper',
+    description: 'Lower carbon footprint per kg compared to paper plates',
+  },
+  {
+    value: '69%',
+    label: 'CO₂ vs plastic',
+    description: 'Significantly lower emissions than petroleum-based disposables',
+  },
+  {
+    value: '90–150 days',
     label: 'Full biodegradation',
     description: 'Returns completely to nature in compost or soil',
   },
@@ -19,11 +29,6 @@ const impactMetrics = [
     value: '0',
     label: 'Microplastics',
     description: 'No plastic coating means no toxic breakdown particles',
-  },
-  {
-    value: '100%',
-    label: 'Agricultural byproduct',
-    description: 'Made from bagasse that would otherwise go to waste',
   },
 ]
 
@@ -54,7 +59,7 @@ export default function LifecyclePage() {
       <section className="bg-brand-primary py-16 text-white md:py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <h1 className="text-3xl font-bold md:text-5xl">
-            From sugarcane field to compost in 90 days
+            From sugarcane field to compost in 90–150 days
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-brand-text-on-green">
             Every Yaha Mogi plate and bowl follows a circular journey — born from Indian fields,
@@ -77,7 +82,7 @@ export default function LifecyclePage() {
           <h2 className="mb-10 text-center text-3xl font-bold text-brand-primary">
             Environmental Impact
           </h2>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-4">
             {impactMetrics.map((metric) => (
               <div key={metric.label} className="rounded-xl border bg-white p-8 text-center shadow-sm">
                 <p className="text-4xl font-bold text-brand-secondary">{metric.value}</p>

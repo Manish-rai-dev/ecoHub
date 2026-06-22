@@ -26,9 +26,9 @@ export default function WhatsAppButton({
       rel="noopener noreferrer"
       className={cn(
         'inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold transition-colors',
-        variant === 'primary' && 'bg-whatsapp text-white hover:bg-whatsapp/90',
+        variant === 'primary' && 'bg-wa text-white hover:bg-wa/90',
         variant === 'outline' &&
-          'border-2 border-whatsapp bg-transparent text-white hover:bg-whatsapp/10',
+          'border-2 border-wa bg-transparent text-white hover:bg-wa/10',
         className,
       )}
     >

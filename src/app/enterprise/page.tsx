@@ -17,38 +17,36 @@ export const metadata: Metadata = {
 const tiers = [
   {
     name: 'Bulk Buyer',
-    subtitle: 'Restaurants & Caterers',
+    subtitle: 'Restaurants, cloud kitchens, caterers',
     featured: false,
     features: [
-      'Minimum 1 box per SKU',
-      'Transparent quotes on enquiry',
-      'Purvanchal delivery coverage',
-      'All 12 SKUs available',
-      'WhatsApp order support',
+      'Min. 1 box/SKU',
+      'GST inclusive',
+      'Purvanchal delivery',
+      'WhatsApp orders',
     ],
   },
   {
     name: 'Wholesale Distributor',
-    subtitle: 'Regional Partners',
+    subtitle: 'Regional partners',
     featured: true,
     features: [
-      'Preferential terms for distributors',
-      'Minimum 5 boxes per order',
-      'Priority dispatch from Varanasi',
-      'Dedicated contact person',
-      'Credit terms available',
+      'Distributor pricing',
+      'Min. 5 boxes/order',
+      'Priority dispatch',
+      'Dedicated contact',
+      'Credit terms on approval',
     ],
   },
   {
     name: 'Institutional Supply',
-    subtitle: 'Schools & Hospitals',
+    subtitle: 'Schools, hospitals, corporates',
     featured: false,
     features: [
-      'Custom volume planning',
+      'Custom volumes',
       'Monthly standing orders',
-      'GST invoicing & compliance',
-      'Bulk compartment plates',
-      'Reorder support & tracking',
+      'GST invoicing',
+      'Scheduled delivery',
     ],
   },
 ]
@@ -56,23 +54,23 @@ const tiers = [
 const whyPartner = [
   {
     icon: Users,
-    title: 'No Middlemen',
-    description: 'Buy direct from the manufacturer — better margins and faster fulfilment.',
+    title: 'No middlemen',
+    description: 'Buy direct from the manufacturer — margins protected.',
   },
   {
     icon: IndianRupee,
-    title: 'GST Compliance',
-    description: `Registered LLP with GSTIN ${company.gstin}. Proper invoicing for every order.`,
+    title: 'Full GST compliance',
+    description: `Registered LLP with GSTIN ${company.gstin}. Formal procurement ready.`,
   },
   {
     icon: TrendingUp,
-    title: 'SUP-Ban Tailwinds',
-    description: 'Growing demand for biodegradable alternatives across Uttar Pradesh and India.',
+    title: 'SUP-ban tailwinds',
+    description: 'Surging demand for biodegradable alternatives across Uttar Pradesh and India.',
   },
   {
     icon: MapPin,
-    title: 'Purvanchal Coverage',
-    description: 'Strategic Varanasi location for efficient delivery across eastern UP.',
+    title: 'Purvanchal coverage',
+    description: 'Strategic Varanasi location for fast delivery across eastern UP.',
   },
 ]
 
@@ -122,7 +120,7 @@ export default function EnterprisePage() {
                   href={waEnterprise(tier.name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-md bg-whatsapp px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-whatsapp/90"
+                  className="inline-flex w-full items-center justify-center rounded-md bg-wa px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-wa/90"
                 >
                   Enquire on WhatsApp
                 </a>
