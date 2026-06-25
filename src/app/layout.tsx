@@ -15,25 +15,25 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://yahamogiecohub.com'),
   title: {
-    default: 'Yaha Mogi Ecohub LLP | Bagasse Tableware | Varanasi',
+    default: 'Yaha Mogi Ecohub LLP | Bagasse Tableware | Made in India',
     template: '%s | Yaha Mogi Ecohub',
   },
   description:
-    'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. 15 SKUs — 150ML bowl to 12" 4CP plate. GST & FOR inclusive. Enquire for a quote. Serving restaurants, cloud kitchens and caterers across Purvanchal.',
+    'Premium 100% biodegradable sugarcane bagasse plates and bowls sourced from trusted manufacturers across India. 15 SKUs — 150ML bowl to 12" 4CP plate. GST & FOR inclusive. Enquire for a quote. Serving restaurants, cloud kitchens and caterers nationwide.',
   keywords: [
-    'bagasse plates Varanasi',
-    'eco tableware UP',
+    'bagasse plates India',
+    'eco tableware India',
     'biodegradable plates wholesale India',
     'sugarcane tableware',
-    'cloud kitchen plates Varanasi',
-    'Purvanchal eco tableware',
-    'single use plastic alternative UP',
+    'cloud kitchen plates India',
+    'eco tableware India',
+    'single use plastic alternative India',
     'bagasse bowls 2026',
   ],
   openGraph: {
-    title: 'Yaha Mogi Ecohub LLP | Bagasse Tableware | Varanasi',
+    title: 'Yaha Mogi Ecohub LLP | Bagasse Tableware | Made in India',
     description:
-      'Premium 100% biodegradable sugarcane bagasse plates and bowls in Varanasi. 15 SKUs. GST & FOR inclusive. Enquire for a quote.',
+      'Premium 100% biodegradable sugarcane bagasse plates and bowls sourced from trusted manufacturers across India. 15 SKUs. GST & FOR inclusive. Enquire for a quote.',
     images: ['/logo-ecohub.png'],
     locale: 'en_IN',
     type: 'website',

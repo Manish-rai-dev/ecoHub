@@ -19,7 +19,7 @@ const steps = [
   {
     icon: Leaf,
     title: 'Priority Dispatch',
-    description: 'Priority fulfilment from our Varanasi facility',
+    description: 'Priority fulfilment from our national manufacturing network',
   },
   {
     icon: RefreshCw,

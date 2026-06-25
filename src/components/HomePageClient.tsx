@@ -225,7 +225,7 @@ export default function HomePageClient() {
               className="space-y-4"
             >
               <Badge className="mb-2 inline-flex border border-[#F5ECD7]/40 bg-[#F5ECD7]/10 px-3 py-2 text-sm font-semibold text-[#F5ECD7]">
-                Made from Sugarcane Bagasse · Varanasi, U.P.
+                Made from Sugarcane Bagasse · Made in India
               </Badge>
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#A8D5A2]">
                 Yaha Mogi Ecohub LLP
@@ -235,7 +235,7 @@ export default function HomePageClient() {
               </h1>
               <p className="max-w-2xl text-xl italic text-[#D4A853]">From the Fields of India, To Your Table</p>
               <p className="max-w-2xl text-base leading-[1.75] text-[#E8F5E9]">
-                Premium bagasse tableware made in Varanasi with a focus on food-safe compostable plates and bowls. No hidden
+                Premium bagasse tableware sourced from trusted manufacturers across India with a focus on food-safe compostable plates and bowls. No hidden
                 charges, no printed prices — enquire for a custom quote.
               </p>
             </motion.div>
@@ -284,7 +284,7 @@ export default function HomePageClient() {
                 <span>🍃</span>
                 <span>
                   Ecohub — India&apos;s eco-tableware brand making 100% biodegradable bagasse plates and bowls,
-                  direct from our Varanasi factory to your table.
+                  direct from trusted manufacturing partners across India to your table.
                 </span>
                 <span>🍃</span>
               </div>

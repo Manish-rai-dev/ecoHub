@@ -15,7 +15,7 @@ const steps = [
     icon: Factory,
     title: 'Production',
     description:
-      'Heat-pressed into food-grade tableware at our Varanasi plant — no bleach, no plastic binders',
+      'Heat-pressed into food-grade tableware at trusted partner facilities — no bleach, no plastic binders',
     highlight: false,
   },
   {

@@ -25,13 +25,13 @@ const storyCards = [
     icon: Sprout,
     title: 'Direct Sourcing',
     description:
-      'We source sugarcane bagasse directly from mills and farmers, ensuring consistent raw material quality and supporting rural agricultural economies.',
+      'We source bagasse directly from manufacturers, ensuring consistent raw material quality and reliable supply across India.',
   },
   {
     icon: MapPin,
     title: 'Rooted in Varanasi',
     description:
-      'Rooted in Varanasi, serving Purvanchal with fast delivery and local accountability.',
+      'Rooted in Varanasi, serving pan-India with fast delivery and broad service coverage.',
   },
   {
     icon: ShieldCheck,

@@ -12,8 +12,8 @@ const stages = [
     title: 'Sugarcane Farming',
     tag: 'Origin',
     description:
-      'Bagasse comes from renewable sugarcane fields in Varanasi, turning agricultural waste into a purpose-built raw material.',
-    facts: ['10–12 month crop cycle', '~30% bagasse yield', 'Varanasi, UP'],
+      'Bagasse comes from renewable sugarcane fields across India, turning agricultural waste into a purpose-built raw material.',
+    facts: ['10–12 month crop cycle', '~30% bagasse yield', 'Sourced from Indian sugarcane growers'],
     bg: '#E8F5E0',
     border: '#6AB04C',
     ecoInsight:

@@ -26,7 +26,7 @@ const stages = [
   {
     icon: '🚚',
     title: 'Delivery to Your Door',
-    description: 'Fast courier service delivers goods across Purvanchal and beyond.',
+    description: 'Fast courier service delivers goods across India and beyond.',
   },
   {
     icon: '🍛',

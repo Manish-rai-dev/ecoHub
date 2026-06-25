@@ -15,9 +15,9 @@ const steps = [
   },
   {
     icon: Truck,
-    title: 'Fast Purvanchal Delivery',
+    title: 'Reliable National Delivery',
     description:
-      'We dispatch directly from Varanasi with reliable delivery across Uttar Pradesh and beyond.',
+      'We dispatch through trusted partners with reliable delivery across India.',
   },
 ]
 
@@ -28,7 +28,7 @@ export default function HowToOrder() {
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-bold text-brand-primary">How to Order</h2>
           <p className="mt-2 text-muted-foreground">
-            Simple, transparent ordering — Made in India, delivered across Purvanchal
+            Simple, transparent ordering — Made in India, delivered across India
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-3">

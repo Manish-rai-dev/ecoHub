@@ -34,10 +34,10 @@ function Logo() {
       <motion.div
         animate={{ scale: [1, 1.04, 1] }}
         transition={{ duration: 1.8, ease: 'easeInOut' }}
-        className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F5ECD7]/15 p-2 shadow-lg shadow-black/10"
+        className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1B4D2E] border border-[#F5ECD7]/15 p-2 shadow-lg shadow-black/10"
       >
         <Image
-          src="/logo-ecohub-dark.png"
+          src="/logo-ecohub-navbar.svg"
           alt="Yaha Mogi Ecohub LLP logo"
           width={56}
           height={56}
