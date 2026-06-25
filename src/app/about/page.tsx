@@ -31,7 +31,7 @@ const storyCards = [
     icon: MapPin,
     title: 'Rooted in Varanasi',
     description:
-      'Manufacturing from our facility near Utkarsh Tower, Shivpur — we serve Purvanchal with fast delivery and local accountability.',
+      'Rooted in Varanasi, serving Purvanchal with fast delivery and local accountability.',
   },
   {
     icon: ShieldCheck,

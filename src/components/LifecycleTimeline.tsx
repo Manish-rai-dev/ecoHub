@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import { Factory, Leaf, Recycle, Sprout, Truck, UtensilsCrossed } from 'lucide-react'
 
 const steps = [
@@ -10,9 +13,9 @@ const steps = [
   },
   {
     icon: Factory,
-    title: 'Manufacturing',
+    title: 'Production',
     description:
-      'Heat-pressed into food-grade tableware — no bleach, no plastic binders',
+      'Heat-pressed into food-grade tableware at our Varanasi plant — no bleach, no plastic binders',
     highlight: false,
   },
   {
@@ -58,9 +61,13 @@ export default function LifecycleTimeline() {
       <div className="absolute bottom-0 left-6 top-0 w-0.5 bg-brand-light md:left-1/2 md:-ml-px" />
       <div className="space-y-10">
         {steps.map((step, index) => (
-          <div
+          <motion.div
             key={step.title}
             className={`relative flex gap-6 md:gap-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: index * 0.06 }}
           >
             <div className={`hidden flex-1 md:block ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`} />
             <div
@@ -74,7 +81,7 @@ export default function LifecycleTimeline() {
               <h3 className="mb-2 text-lg font-semibold text-brand-primary">{step.title}</h3>
               <p className="text-sm text-muted-foreground">{step.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

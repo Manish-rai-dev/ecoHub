@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="space-y-4">
           <Link href="/">
             <Image
-              src="/logo-light.png"
+              src="/logo-ecohub-dark.png"
               alt="Yaha Mogi Ecohub LLP"
               width={144}
               height={36}
@@ -52,6 +52,7 @@ export default function Footer() {
           </Link>
           <p className="text-sm italic">{company.tagline}</p>
           <p className="text-xs">GSTIN: {company.gstin}</p>
+          <p className="text-sm">{company.officeLabel ?? '🏢 Head Office'}</p>
           <p className="text-sm">{company.address.full}</p>
         </div>
 

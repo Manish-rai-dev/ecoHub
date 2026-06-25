@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Yaha Mogi Ecohub logo</title>
+  <desc id="logoDesc">Green square logo with a leaf and Yaha Mogi Ecohub initials</desc>
+  <rect width="120" height="120" rx="24" fill="#1A4A1F"/>
+  <circle cx="60" cy="44" r="28" fill="#F5EED8"/>
+  <path d="M61 24c9.5 7.5 15.5 17 14 26s-9.5 17-18.5 17-17-8-18.5-17 4.5-18.5 14-26c0 0 3.5 5.5 7.5 7.5 4-2 8-7.5 8-7.5z" fill="#1A4A1F"/>
+  <path d="M55 19c-4 4-6 9-6 14s2 10 6 14 10 6 14 6 8-2 10-6c-4-2-7-5-9-9-2-4-2-9 0-14-4-2-9-2-15-1z" fill="#E8B84B"/>
+  <text x="50%" y="88" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-weight="700" font-size="20">YME</text>
+</svg>

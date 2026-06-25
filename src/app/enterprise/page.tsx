@@ -31,7 +31,7 @@ const tiers = [
     subtitle: 'Regional partners',
     featured: true,
     features: [
-      'Distributor pricing on enquiry',
+      'Distributor quote on request',
       'Min. 5 boxes/order',
       'Priority dispatch',
       'Dedicated contact',

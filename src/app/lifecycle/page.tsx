@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import LifecycleJourney from '@/components/LifecycleJourney'
 import LifecycleTimeline from '@/components/LifecycleTimeline'
 import WhatsAppCtaStrip from '@/components/WhatsAppCtaStrip'
 import { Building2, ChefHat, PartyPopper } from 'lucide-react'
@@ -6,7 +7,7 @@ import { Building2, ChefHat, PartyPopper } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Product Lifecycle — Field to Compost in 90–150 Days',
   description:
-    'Follow the journey of Yaha Mogi bagasse tableware from sugarcane fields through manufacturing, use, and full biodegradation in 90–150 days — zero microplastics.',
+    'Follow the journey of Yaha Mogi bagasse tableware from sugarcane fields through production, use, and full biodegradation in 90–150 days — zero microplastics.',
 }
 
 const impactMetrics = [
@@ -73,6 +74,7 @@ export default function LifecyclePage() {
           <h2 className="mb-12 text-center text-3xl font-bold text-brand-primary">
             The Lifecycle Journey
           </h2>
+          <LifecycleJourney />
           <LifecycleTimeline />
         </div>
       </section>

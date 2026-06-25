@@ -4,8 +4,10 @@ import ProductIllustration from '@/components/ProductIllustration'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import type { Product } from '@/lib/products'
+import { categoryLabels } from '@/lib/products'
 import { waProductEnquiry } from '@/lib/whatsapp'
 import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 
 interface ProductCardProps {
@@ -77,16 +79,23 @@ export default function ProductCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <h3 className="text-[13px] font-medium text-brand-primary">{product.displayName}</h3>
+        <div className="flex flex-wrap items-center gap-2">
+          <h3 className="text-[13px] font-medium text-brand-primary">{product.displayName}</h3>
+          <Badge className="rounded-full bg-brand-light px-2 py-0.5 text-[10px] font-semibold text-brand-primary">
+            {categoryLabels[product.category]}
+          </Badge>
+        </div>
         <p className="text-xs text-muted-foreground">
           {product.grammage} · {product.pcsPerBox.toLocaleString('en-IN')} pcs/box · Pack of{' '}
           {product.pcsPerPack}
         </p>
-        <p className="text-sm italic text-brand-secondary">Enquire for price →</p>
+        <p className="text-sm italic text-brand-secondary">Quote on enquiry — WhatsApp us for a quote.</p>
 
         <div className="mt-auto flex flex-col gap-2 pt-2">
-          <button
+          <motion.button
             type="button"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
             onClick={(e) => {
               e.stopPropagation()
               onViewDetails(product)
@@ -97,8 +106,10 @@ export default function ProductCard({
             )}
           >
             View Details
-          </button>
-          <a
+          </motion.button>
+          <motion.a
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
             href={waProductEnquiry(product)}
             target="_blank"
             rel="noopener noreferrer"
@@ -106,7 +117,7 @@ export default function ProductCard({
             className={cn(buttonVariants({ size: 'default' }), 'w-full bg-wa text-white hover:bg-wa/90')}
           >
             WhatsApp
-          </a>
+          </motion.a>
         </div>
       </div>
     </article>

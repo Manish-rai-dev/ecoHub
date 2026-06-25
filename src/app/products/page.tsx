@@ -5,7 +5,7 @@ import ProductGrid from '@/components/ProductGrid'
 export const metadata: Metadata = {
   title: 'Products — Bagasse Plates & Bowls Wholesale',
   description:
-    'Browse all 15 SKUs of biodegradable bagasse tableware — bowls, round plates, and compartment plates. Min. order 1 box per SKU. Enquire for pricing.',
+    'Browse all 15 SKUs of biodegradable bagasse tableware — bowls, round plates, and compartment plates. Min. order 1 box per SKU. Enquire for a quote.',
 }
 
 export default function ProductsPage() {
@@ -32,7 +32,7 @@ export default function ProductsPage() {
           <div className="mt-8 rounded-lg border border-brand-secondary/30 bg-brand-light p-4">
             <p className="text-sm text-brand-primary">
               GST &amp; FOR inclusive. Weights approx ±10% due to natural raw materials. Minimum
-              order: 1 box per SKU. Pricing available on enquiry — contact us via WhatsApp or phone.
+              order: 1 box per SKU. Quote available on enquiry — contact us via WhatsApp or phone.
             </p>
           </div>
         </div>

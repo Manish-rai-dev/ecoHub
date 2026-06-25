@@ -1,6 +1,7 @@
 'use client'
 
 import { MessageCircle } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { waGeneral } from '@/lib/whatsapp'
 import { cn } from '@/lib/utils'
 
@@ -20,10 +21,12 @@ export default function WhatsAppButton({
   const href = waGeneral(message)
 
   return (
-    <a
+    <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
       className={cn(
         'inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold transition-colors',
         variant === 'primary' && 'bg-wa text-white hover:bg-wa/90',
@@ -34,6 +37,7 @@ export default function WhatsAppButton({
     >
       <MessageCircle className="h-4 w-4" />
       {label}
-    </a>
+    </motion.a>
   )
 }
+

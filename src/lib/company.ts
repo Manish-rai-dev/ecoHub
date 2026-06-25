@@ -10,6 +10,7 @@ export const company = {
     country: 'India',
     full: 'Near G.K. Hotel, Utkarsh Tower, Sehmalpur, Jamalpur, Shivpur, Varanasi – 221105, U.P., India',
   },
+  officeLabel: '🏢 Head Office',
   instagram: '@yahamogiecohub',
   instagramUrl: 'https://instagram.com/yahamogiecohub',
   email: 'yahamogiecohub@gmail.com',

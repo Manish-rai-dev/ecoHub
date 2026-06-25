@@ -3,7 +3,7 @@ import ContactForm from '@/components/ContactForm'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import { company } from '@/lib/company'
 import { waGeneral } from '@/lib/whatsapp'
-import { Mail, MapPin, MessageCircle } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Contact Us — Order Bagasse Tableware in Varanasi',
@@ -80,8 +80,9 @@ export default function ContactPage() {
               <div className="space-y-3 rounded-xl border bg-brand-light p-5 text-sm">
                 <div className="flex items-start gap-2">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-primary" />
-                  <span>{company.address.full}</span>
+                  <span className="font-semibold text-brand-primary">{company.officeLabel ?? '🏢 Head Office'}</span>
                 </div>
+                <p>{company.address.full}</p>
                 <p>
                   <span className="font-medium text-brand-primary">GSTIN:</span> {company.gstin}
                 </p>
@@ -100,13 +101,36 @@ export default function ContactPage() {
                   Email Us
                 </a>
               </div>
+
+              <div className="mt-8 rounded-3xl border border-brand-secondary/20 bg-white shadow-sm">
+                <div className="flex flex-col gap-2 rounded-t-3xl border-b border-brand-secondary/20 bg-brand-light px-5 py-4">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-brand-primary">
+                    <span>📍 Find Us Here</span>
+                    <a
+                      href="https://www.google.com/maps?q=25.411687,82.884748"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-secondary underline"
+                    >
+                      Open in Google Maps
+                    </a>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Latitude: 25.411687°, Longitude: 82.884748°</p>
+                </div>
+                <div className="h-[220px] overflow-hidden rounded-b-3xl md:h-[350px]">
+                  <iframe
+                    src="https://www.google.com/maps?q=25.411687,82.884748&z=16&output=embed"
+                    title="Yaha Mogi Ecohub Head Office location"
+                    className="h-full w-full border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </div>
             </div>
 
             <div>
-              <h2 className="mb-6 flex items-center gap-2 text-2xl font-bold text-brand-primary">
-                <MessageCircle className="h-6 w-6" />
-                Send an Enquiry
-              </h2>
+              <h2 className="mb-6 text-2xl font-bold text-brand-primary">Send an Enquiry</h2>
               <ContactForm />
             </div>
           </div>

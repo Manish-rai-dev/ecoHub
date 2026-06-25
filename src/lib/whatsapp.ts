@@ -7,7 +7,7 @@ export function waProductEnquiry(product: Product): string {
     `Hi! I am interested in ordering *${product.displayName}*\n` +
     `• Grammage: ${product.grammage}\n` +
     `• Pack: ${product.pcsPerBox} pcs/box (${product.pcsPerPack} pcs/pack)\n\n` +
-    `Please share pricing, stock availability and delivery details for my location.`
+    `Please share a quote, stock availability and delivery details for my location.`
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`
 }
 
@@ -18,7 +18,7 @@ export function waMultiProductEnquiry(selected: Product[]): string {
   const msg =
     `Hi! I would like to enquire about the following products from Yaha Mogi Ecohub LLP:\n\n` +
     `${lines}\n\n` +
-    `Please share pricing, availability and delivery details for my location.`
+    `Please share a quote, availability and delivery details for my location.`
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`
 }
 

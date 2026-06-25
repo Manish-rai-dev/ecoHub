@@ -2,6 +2,7 @@
 
 import { Suspense, useCallback, useEffect, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { motion } from 'framer-motion'
 import ProductCard from '@/components/ProductCard'
 import ProductModal from '@/components/ProductModal'
 import { featuredProductIds, getProductById, products, type Product } from '@/lib/products'
@@ -43,8 +44,16 @@ function FeaturedProductsInner() {
   return (
     <>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {featured.map((product) => (
-          <ProductCard key={product.id} product={product} onViewDetails={openModal} />
+        {featured.map((product, idx) => (
+          <motion.div
+            key={product.id}
+            initial={{ opacity: 0, y: 30, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45, delay: idx * 0.08 }}
+          >
+            <ProductCard key={product.id} product={product} onViewDetails={openModal} />
+          </motion.div>
         ))}
       </div>
       <ProductModal product={selectedProduct} onClose={closeModal} />

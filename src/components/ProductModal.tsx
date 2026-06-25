@@ -79,7 +79,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               </div>
 
               <div className="space-y-1 border-b border-brand-light px-5 py-4">
-                <p className="font-medium text-brand-primary">Pricing available on enquiry.</p>
+                <p className="font-medium text-brand-primary">Quote available on enquiry.</p>
                 <p className="text-sm text-muted-foreground">
                   Contact us via WhatsApp or phone for a custom quote based on your volume and
                   delivery location.
@@ -135,7 +135,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               </div>
 
               <p className="px-5 pb-4 text-xs italic text-muted-foreground">
-                GST &amp; FOR inclusive. Weight ±10% due to natural raw materials. Pricing on enquiry.
+                GST &amp; FOR inclusive. Weight ±10% due to natural raw materials. Quote on enquiry.
               </p>
             </div>
 

@@ -1,3 +1,7 @@
+'use client'
+
+import { motion } from 'framer-motion'
+
 const rows = [
   {
     attribute: 'Eco-Friendly',
@@ -115,7 +119,14 @@ export default function ComparisonTable({ className }: ComparisonTableProps) {
           </thead>
           <tbody>
             {rows.map((row, index) => (
-              <tr key={row.attribute} className={index % 2 === 1 ? 'bg-muted/30' : ''}>
+              <motion.tr
+                key={row.attribute}
+                className={index % 2 === 1 ? 'bg-muted/30' : ''}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.45, delay: index * 0.05 }}
+              >
                 <td className="bg-brand-primary p-3 font-semibold text-white">{row.attribute}</td>
                 <td className="bg-brand-light p-3 text-center">
                   <div className="flex flex-col items-center gap-1">
@@ -141,7 +152,7 @@ export default function ComparisonTable({ className }: ComparisonTableProps) {
                     <span className="text-xs">{row.plastic.value}</span>
                   </div>
                 </td>
-              </tr>
+              </motion.tr>
             ))}
           </tbody>
         </table>

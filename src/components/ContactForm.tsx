@@ -57,7 +57,7 @@ export default function ContactForm() {
       form.email ? `Email: ${form.email}` : '',
       form.company ? `Company/Restaurant: ${form.company}` : '',
       form.message ? `Message: ${form.message}` : '',
-      'Please share pricing and availability.',
+      'Please share a quote and availability details.',
     ]
       .filter(Boolean)
       .join('\n')

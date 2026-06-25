@@ -4,7 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -29,15 +30,25 @@ const navLinks = [
 
 function Logo() {
   return (
-    <Link href="/" className="flex shrink-0 items-center">
-      <Image
-        src="/logo-light.png"
-        alt="Yaha Mogi Ecohub LLP"
-        width={160}
-        height={40}
-        className="h-10 w-auto"
-        priority
-      />
+    <Link href="/" className="flex items-center gap-3">
+      <motion.div
+        animate={{ scale: [1, 1.04, 1] }}
+        transition={{ duration: 1.8, ease: 'easeInOut' }}
+        className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F5ECD7]/15 p-2 shadow-lg shadow-black/10"
+      >
+        <Image
+          src="/logo-ecohub-dark.png"
+          alt="Yaha Mogi Ecohub LLP logo"
+          width={56}
+          height={56}
+          className="h-12 w-auto"
+          priority
+        />
+      </motion.div>
+      <div className="min-w-[12rem]">
+        <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#F5ECD7]">Ecohub</p>
+        <p className="mt-1 text-xs text-[#A8D5A2]">Eco-Friendly Bagasse Tableware</p>
+      </div>
     </Link>
   )
 }
@@ -46,6 +57,23 @@ export default function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const lastScrollY = useRef(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        setIsVisible(false)
+      } else {
+        setIsVisible(true)
+      }
+      lastScrollY.current = currentScrollY
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   function isActive(href: string) {
     if (href === '/') return pathname === '/'
@@ -53,11 +81,16 @@ export default function Navbar() {
   }
 
   return (
-    <header className="border-b border-brand-secondary/50 bg-brand-primary shadow-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5 md:px-6">
+    <header
+      className={cn(
+        'sticky top-0 z-50 transform border-b border-[#F5ECD7]/15 bg-[#1B4D2E]/95 backdrop-blur-sm text-white shadow-black/20 shadow-md transition-transform duration-300 ease-out',
+        isVisible ? 'translate-y-0' : '-translate-y-full',
+      )}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6">
         <Logo />
 
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-1.5 lg:flex" aria-label="Main navigation">
           {navLinks.map((link) => {
             if (link.children) {
               return (
@@ -65,21 +98,21 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={cn(
-                      'inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                      'inline-flex items-center gap-1 rounded-full border border-transparent bg-[#1F5935] px-3 py-2 text-sm font-semibold transition-all duration-200',
                       isActive(link.href)
-                        ? 'text-brand-accent'
-                        : 'text-brand-text-on-green hover:text-white',
+                        ? 'border-[#F5ECD7] text-white shadow-inner shadow-black/10'
+                        : 'text-[#E8F5E9] hover:bg-white/10 hover:text-white',
                     )}
                   >
                     {link.label}
                     <ChevronDown className="h-3.5 w-3.5" />
                   </Link>
-                  <div className="invisible absolute left-0 top-full z-50 min-w-[200px] rounded-md border border-brand-secondary/30 bg-brand-dark py-1 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
+                  <div className="invisible absolute left-0 top-full z-50 min-w-[200px] rounded-2xl border border-white/10 bg-[#1B4D2E] py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
                     {link.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block px-4 py-2 text-sm text-brand-text-on-green hover:bg-brand-secondary hover:text-white"
+                        className="block rounded-xl px-4 py-2 text-sm text-[#E8F5E9] transition hover:bg-white/10 hover:text-white"
                       >
                         {child.label}
                       </Link>
@@ -93,10 +126,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                  'rounded-full px-3 py-2 text-sm font-semibold transition-all duration-200',
                   isActive(link.href)
-                    ? 'text-brand-accent'
-                    : 'text-brand-text-on-green hover:text-white',
+                    ? 'bg-[#234e36] text-white shadow-inner shadow-black/10'
+                    : 'text-[#E8F5E9] hover:bg-white/10 hover:text-white',
                 )}
               >
                 {link.label}
@@ -110,7 +143,7 @@ export default function Navbar() {
             href="/contact"
             className={cn(
               buttonVariants({ size: 'default' }),
-              'hidden bg-brand-accent font-semibold text-brand-primary hover:bg-brand-accent/90 sm:inline-flex',
+              'hidden rounded-full bg-[#F5ECD7] px-4 py-2 text-sm font-semibold text-[#1B4D2E] shadow-sm shadow-black/10 hover:bg-[#ffffffcc] lg:inline-flex',
             )}
           >
             Enquire Now
@@ -118,7 +151,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="inline-flex rounded-md p-2 text-brand-text-on-green hover:bg-brand-secondary lg:hidden"
+            className="inline-flex rounded-md p-2 text-white hover:bg-white/10 lg:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((prev) => !prev)}
@@ -129,7 +162,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-brand-secondary/50 bg-brand-primary lg:hidden">
+        <div className="border-t border-white/10 bg-[#1B4D2E] lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4" aria-label="Mobile navigation">
             {navLinks.map((link) => {
               if (link.children) {
@@ -138,19 +171,19 @@ export default function Navbar() {
                     <button
                       type="button"
                       onClick={() => setProductsOpen((p) => !p)}
-                      className="flex w-full items-center justify-between rounded-md px-3 py-3 text-sm font-medium text-brand-text-on-green hover:bg-brand-secondary hover:text-white"
+                      className="flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
                     >
                       {link.label}
                       <ChevronDown className={cn('h-4 w-4 transition-transform', productsOpen && 'rotate-180')} />
                     </button>
                     {productsOpen && (
-                      <div className="ml-3 border-l border-brand-secondary/50 pl-3">
+                      <div className="ml-3 border-l border-white/10 pl-3">
                         {link.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
                             onClick={() => setOpen(false)}
-                            className="block rounded-md px-3 py-2 text-sm text-brand-text-on-green hover:bg-brand-secondary hover:text-white"
+                            className="block rounded-md px-3 py-2 text-sm text-white/80 hover:bg-white/10 hover:text-white"
                           >
                             {child.label}
                           </Link>
@@ -166,10 +199,10 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    'rounded-md px-3 py-3 text-sm font-medium transition-colors',
+                    'rounded-md px-3 py-3 text-sm font-medium transition-all duration-200',
                     isActive(link.href)
-                      ? 'bg-brand-secondary text-brand-accent'
-                      : 'text-brand-text-on-green hover:bg-brand-secondary hover:text-white',
+                      ? 'bg-white/10 text-white'
+                      : 'text-white/80 hover:bg-white/10 hover:text-white',
                   )}
                 >
                   {link.label}
@@ -181,7 +214,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className={cn(
                 buttonVariants({ size: 'default' }),
-                'mt-2 bg-brand-accent font-semibold text-brand-primary hover:bg-brand-accent/90',
+                'mt-2 rounded-full bg-[#F5ECD7] px-4 py-2 text-sm font-semibold text-[#1B4D2E] shadow-sm shadow-black/10 hover:bg-[#ffffffcc]',
               )}
             >
               Enquire Now

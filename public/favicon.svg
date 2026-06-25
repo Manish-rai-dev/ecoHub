@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="faviconTitle faviconDesc">
+  <title id="faviconTitle">Yaha Mogi Ecohub favicon</title>
+  <desc id="faviconDesc">Minimal leaf icon for Yaha Mogi Ecohub</desc>
+  <rect width="120" height="120" rx="24" fill="#1A4A1F"/>
+  <path d="M34 56c10-10 22-14 32-14s22 4 32 14c0 0-12 4-18 10-6 6-9 14-14 18-4-4-8-12-14-18-6-6-18-10-18-10z" fill="#F5EED8"/>
+  <path d="M64 34c-4 4-6 9-6 14s2 10 6 14c4 4 10 6 14 6 0-4-2-9-6-13-4-4-8-6-12-7-2-4-1-9 1-14-4 0-8 1-11 4z" fill="#E8B84B"/>
+</svg>
