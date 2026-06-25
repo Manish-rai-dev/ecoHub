@@ -12,7 +12,7 @@ import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { company } from '@/lib/company'
 import { cn } from '@/lib/utils'
-import { ArrowRight, Leaf, LayoutGrid, Package, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -77,11 +77,53 @@ const impactBar = [
 ]
 
 const categoryTiles = [
-  { key: 'bowls', label: 'Bowls', shape: 'bowl-md' as const, count: 4, icon: Package },
-  { key: 'plates', label: 'Round Plates', shape: 'plate-round' as const, count: 6, icon: LayoutGrid },
-  { key: 'compartment', label: 'Compartment Plates', shape: 'plate-3cp-round' as const, count: 4, icon: Sparkles },
-  { key: 'special', label: 'Special Range', shape: 'plate-snack' as const, count: 1, icon: Leaf },
+  { key: 'bowls', label: 'Bowls', shape: 'bowl-md' as const, count: 4, icon: BowIcon },
+  { key: 'plates', label: 'Round Plates', shape: 'plate-round' as const, count: 6, icon: RoundPlateIcon },
+  { key: 'compartment', label: 'Compartment Plates', shape: 'plate-3cp-round' as const, count: 4, icon: CompartmentPlateIcon },
+  { key: 'special', label: 'Special Range', shape: 'plate-snack' as const, count: 1, icon: LeafIcon },
 ]
+
+function BowIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+      <path d="M6 16c0 6 3 10 10 10s10-4 10-10" />
+      <path d="M6 16h20" />
+      <path d="M10 16c0-3 2-6 6-6s6 3 6 6" />
+      <path d="M7 20c0 1.5 1.5 3 3 3" />
+      <path d="M22 20c0 1.5-1.5 3-3 3" />
+    </svg>
+  )
+}
+
+function RoundPlateIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+      <circle cx="16" cy="16" r="10" />
+      <circle cx="16" cy="16" r="5" />
+    </svg>
+  )
+}
+
+function CompartmentPlateIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+      <circle cx="16" cy="16" r="10" />
+      <path d="M16 6v20" />
+      <path d="M6 16h20" />
+      <path d="M16 16l6 6" />
+    </svg>
+  )
+}
+
+function LeafIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+      <path d="M7 16c0-5 4-9 9-9s9 4 9 9-4 9-9 9c-1.6 0-3.1-.4-4.4-1.1" />
+      <path d="M16 7c0 4.5-2.5 8-6 10" />
+      <path d="M16 15c3 0 5-2 5-5" />
+    </svg>
+  )
+}
 
 const safeForYou = [
   {
@@ -275,7 +317,7 @@ export default function HomePageClient() {
       </section>
 
       {/* Shop by category */}
-      <section className="py-16">
+      <section className="py-20 overflow-visible">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -285,7 +327,7 @@ export default function HomePageClient() {
               </p>
             </div>
           </div>
-          <div className="no-scrollbar flex gap-4 overflow-x-auto overflow-visible pb-3">
+          <div className="no-scrollbar flex gap-4 overflow-x-auto overflow-visible pb-3 pt-1">
             {categoryTiles.map((tile, idx) => (
               <motion.div
                 key={tile.key}
@@ -293,7 +335,7 @@ export default function HomePageClient() {
                 initial={{ opacity: 0, x: 40 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative min-w-[18rem] overflow-visible rounded-3xl border border-[#E7E0D0] bg-[#FDFAF4] p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#1B4D2E] hover:shadow-2xl hover:z-10"
+                className="relative min-w-[18rem] overflow-visible rounded-3xl border border-[#E7E0D0] bg-[#FDFAF4] p-6 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-[#1B4D2E] hover:shadow-2xl hover:z-10"
               >
                 <div className="mb-4 flex h-20 items-center justify-center rounded-3xl bg-[#E8F2E5]">
                   {tile.icon ? <tile.icon className="h-10 w-10 text-[#1B4D2E]" /> : <ProductIllustration shape={tile.shape} size="md" />}

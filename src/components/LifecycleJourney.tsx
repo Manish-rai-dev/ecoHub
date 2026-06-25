@@ -59,9 +59,13 @@ export default function LifecycleJourney() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="min-w-[18rem] flex-1 rounded-3xl border border-[#E7E0D0] bg-white p-6 shadow-sm md:max-w-[calc(33%-1rem)]"
             >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#E8F2E5] text-3xl">
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut', delay: index * 0.15 }}
+                className="mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#E8F2E5] text-3xl"
+              >
                 {stage.icon}
-              </div>
+              </motion.div>
               <h3 className="mb-3 text-xl font-semibold text-[#1B4D2E]">{stage.title}</h3>
               <p className="text-sm text-[#4F5F4B]">{stage.description}</p>
               {index < stages.length - 1 && (
