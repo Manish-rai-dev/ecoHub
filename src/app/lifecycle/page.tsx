@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import LifecycleJourney from '@/components/LifecycleJourney'
-import LifecycleTimeline from '@/components/LifecycleTimeline'
+import LifecycleExplorer from '@/components/LifecycleExplorer'
 import WhatsAppCtaStrip from '@/components/WhatsAppCtaStrip'
 import { Building2, ChefHat, PartyPopper } from 'lucide-react'
 
@@ -13,12 +12,12 @@ export const metadata: Metadata = {
 const impactMetrics = [
   {
     value: '93%',
-    label: 'CO₂ vs paper',
+    label: 'Lower CO₂ vs paper',
     description: 'Lower carbon footprint per kg compared to paper plates',
   },
   {
     value: '69%',
-    label: 'CO₂ vs plastic',
+    label: 'Lower CO₂ vs plastic',
     description: 'Significantly lower emissions than petroleum-based disposables',
   },
   {
@@ -59,25 +58,19 @@ export default function LifecyclePage() {
     <>
       <section className="bg-brand-primary py-16 text-white md:py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <h1 className="text-3xl font-bold md:text-5xl">
-            From sugarcane field to compost in 90–150 days
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-brand-text-on-green">
-            Every Yaha Mogi plate and bowl follows a circular journey — born from Indian fields,
-            serving your table, and returning to the earth without a trace of plastic pollution.
-          </p>
+          <div className="space-y-6">
+            <h1 className="text-3xl font-bold md:text-5xl">
+              From sugarcane field to compost in 90–150 days
+            </h1>
+            <p className="max-w-2xl text-lg text-brand-text-on-green">
+              Every Yaha Mogi plate and bowl follows a circular journey — born from Indian fields,
+              serving your table, and returning to the earth without a trace of plastic pollution.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <h2 className="mb-12 text-center text-3xl font-bold text-brand-primary">
-            The Lifecycle Journey
-          </h2>
-          <LifecycleJourney />
-          <LifecycleTimeline />
-        </div>
-      </section>
+      <LifecycleExplorer />
 
       <section className="bg-brand-light py-16">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
@@ -115,7 +108,7 @@ export default function LifecyclePage() {
 
       <WhatsAppCtaStrip
         title="Make the switch to compostable tableware"
-        subtitle="Tell us your monthly volume and we'll recommend the right SKUs for your needs."
+        subtitle="Tell us about your order and we will help you pick the right SKUs."
       />
     </>
   )

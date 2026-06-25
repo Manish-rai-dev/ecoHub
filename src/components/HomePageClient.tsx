@@ -12,7 +12,7 @@ import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { company } from '@/lib/company'
 import { cn } from '@/lib/utils'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Star } from 'lucide-react'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -175,16 +175,19 @@ const testimonials = [
 
 const reviewWall = [
   {
-    quote: '“Incredible product strength and consistent quality. Our guests noticed the difference.”',
+    quote: 'Incredible product strength and consistent quality. Our guests noticed the difference.',
     author: 'Sumanth, Cloud Kitchen Owner',
+    rating: 5,
   },
   {
-    quote: '“No leaks, no smell, and the eco story sells itself to customers.”',
+    quote: 'No leaks, no smell, and the eco story sells itself to customers.',
     author: 'Mamta, Catering Business',
+    rating: 5,
   },
   {
-    quote: '“Switching to Yaha Mogi was the best decision for our restaurant’s sustainability goals.”',
+    quote: 'Switching to Yaha Mogi was the best decision for our restaurant’s sustainability goals.',
     author: 'Anil, Restaurant Chain Buyer',
+    rating: 4,
   },
 ]
 
@@ -431,42 +434,21 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <h2 className="mb-10 text-center text-3xl font-bold text-brand-primary">
-            What Our Customers Say
-          </h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {testimonials.map((t) => (
-              <blockquote
-                key={t.author}
-                className="rounded-xl border bg-white p-6 shadow-sm"
-              >
-                <p className="mb-2 text-brand-accent">★★★★★</p>
-                <p className="text-sm text-muted-foreground">&ldquo;{t.quote}&rdquo;</p>
-                <footer className="mt-4 text-sm font-medium text-brand-primary">— {t.author}</footer>
-              </blockquote>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Review wall */}
-      <section className="bg-[#F2F7EE] py-16">
+      <section className="bg-[#F2F7EE] py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <div className="mb-10 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#1B4D2E]/80">
-              Trusted by Restaurants & Caterers
+          <div className="mb-12 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.45em] text-[#1B4D2E]/70">
+              Trusted by restaurants, caterers and sustainability buyers
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-brand-primary">
-              Real Feedback From Buyers
+            <h2 className="mt-4 text-4xl font-extrabold tracking-tight text-brand-primary md:text-5xl">
+              Buyer Reviews that speak for our quality
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-              See why restaurant owners, event managers and distributors keep choosing our compostable tableware.
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-[#274D31]">
+              Authentic feedback from businesses using our bagasse plates and bowls every day — clear, strong, and compostable.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {reviewWall.map((item, index) => (
               <motion.div
                 key={`${item.author}-${index}`}
@@ -474,11 +456,18 @@ export default function HomePageClient() {
                 initial={{ opacity: 0, y: 22 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="rounded-3xl border border-[#D8E7D2] bg-white p-6 shadow-sm"
+                className="rounded-[32px] border border-[#C8D8C4] bg-white p-8 shadow-[0_18px_50px_rgba(15,40,20,0.08)] transition-transform duration-300 hover:-translate-y-1"
               >
-                <div className="mb-4 text-3xl">💬</div>
-                <p className="text-sm leading-7 text-brand-text-on-green">{item.quote}</p>
-                <footer className="mt-5 text-sm font-semibold text-brand-primary">— {item.author}</footer>
+                <div className="mb-4 flex items-center gap-2 text-[#D69F4A]">
+                  {Array.from({ length: item.rating }).map((_, starIndex) => (
+                    <Star key={starIndex} className="h-4 w-4" />
+                  ))}
+                  {item.rating < 5 && (
+                    <span className="text-xs text-[#6B6B6B]">{item.rating}.0</span>
+                  )}
+                </div>
+                <p className="text-base leading-8 text-[#1F3320]">“{item.quote}”</p>
+                <footer className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#15401D]">{item.author}</footer>
               </motion.div>
             ))}
           </div>

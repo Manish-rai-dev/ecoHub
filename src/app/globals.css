@@ -131,12 +131,21 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
+    font-family: inherit;
   }
   html {
     @apply font-sans;
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: inherit;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
   }
 }
 
@@ -154,7 +163,22 @@
   white-space: nowrap;
   display: inline-flex;
 }
+.timeline-path {
+  stroke-dasharray: 6 6;
+  animation: dash-move 2s linear infinite;
+}
 
+@keyframes dash-move {
+  to {
+    stroke-dashoffset: 12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-path {
+    animation: none;
+  }
+}
 .marquee-inner-slow {
   animation: marquee 32s linear infinite;
   white-space: nowrap;

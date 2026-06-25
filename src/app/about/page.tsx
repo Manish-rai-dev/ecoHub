@@ -106,12 +106,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <ComparisonTable />
-        </div>
-      </section>
-
       <section className="bg-brand-light py-16">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <h2 className="mb-10 text-center text-3xl font-bold text-brand-primary">
