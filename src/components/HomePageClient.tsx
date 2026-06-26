@@ -201,7 +201,7 @@ export default function HomePageClient() {
               <Badge className="mb-2 inline-flex border border-[#F5ECD7]/40 bg-[#F5ECD7]/10 px-3 py-2 text-sm font-semibold text-[#F5ECD7]">
                 Made from Sugarcane Bagasse · Made in India
               </Badge>
-                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#A8D5A2]">
+                <p className=" text-[2rem] font-bold uppercase tracking-[.15em] text-[#A8F1A2] ">
                 Yaha Mogi Ecohub LLP
               </p>
               <h1 className="max-w-2xl text-4xl font-extrabold leading-tight md:text-5xl text-white">
