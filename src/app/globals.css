@@ -184,3 +184,42 @@
   white-space: nowrap;
   display: inline-flex;
 }
+
+/* ── Ticker scroll animations ── */
+@keyframes announceTicker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes trustTicker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Pause tickers on hover */
+[aria-label="Announcement bar"]:hover > div > div,
+[aria-label="Trust signals"]:hover > div > div {
+  animation-play-state: paused;
+}
+
+/* Prevent layout shift during sticky hide/show */
+body {
+  overflow-x: hidden;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  [aria-label="Announcement bar"] {
+    height: 28px !important;
+  }
+  [aria-label="Announcement bar"] span {
+    font-size: 10px !important;
+    padding: 0 12px !important;
+  }
+  [aria-label="Trust signals"] {
+    height: 36px !important;
+  }
+  [aria-label="Trust signals"] span[style*="11px"] {
+    font-size: 10px !important;
+  }
+}

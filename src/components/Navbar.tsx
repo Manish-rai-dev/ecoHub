@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -57,23 +57,6 @@ export default function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
-  const lastScrollY = useRef(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
-        setIsVisible(false)
-      } else {
-        setIsVisible(true)
-      }
-      lastScrollY.current = currentScrollY
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   function isActive(href: string) {
     if (href === '/') return pathname === '/'
@@ -81,12 +64,7 @@ export default function Navbar() {
   }
 
   return (
-    <header
-      className={cn(
-        'sticky top-0 z-50 transform border-b border-[#F5ECD7]/15 bg-[#1B4D2E]/95 backdrop-blur-sm text-white shadow-black/20 shadow-md transition-transform duration-300 ease-out',
-        isVisible ? 'translate-y-0' : '-translate-y-full',
-      )}
-    >
+    <header className="border-b border-[#F5ECD7]/15 bg-[#1B4D2E]/95 backdrop-blur-sm text-white shadow-black/20 shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6">
         <Logo />
 

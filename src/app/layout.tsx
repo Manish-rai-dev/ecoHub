@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import AnnouncementBar from '@/components/AnnouncementBar'
+import StickyHeader from '@/components/StickyHeader'
 import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
-import TrustTicker from '@/components/TrustTicker'
 import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 
@@ -51,12 +49,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-white font-sans text-foreground">
-        <div className="sticky top-0 z-50">
-          <AnnouncementBar />
-          <Navbar />
-          <TrustTicker />
-        </div>
+        <StickyHeader />
         <main className="flex-1">{children}</main>
         <Footer />
         <Toaster richColors position="top-center" />
