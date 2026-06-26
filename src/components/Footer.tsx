@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="space-y-4">
           <Link href="/">
             <Image
-              src="/logo-ecohub-dark.png"
+              src="/YM_ecohub_logo.jpeg"
               alt="Yaha Mogi Ecohub LLP"
               width={144}
               height={36}

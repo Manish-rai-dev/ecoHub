@@ -103,7 +103,7 @@ export default function ProductGrid() {
 
   return (
     <>
-      <div className="sticky top-[7.75rem] z-40 -mx-4 border-b border-brand-light bg-white/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-white/90 md:-mx-6 md:px-6">
+      <div className="-mx-4 border-b border-brand-light bg-white/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-white/90 md:-mx-6 md:px-6">
         <div className="flex flex-wrap gap-2">
           {CATEGORIES.map((filter) => (
             <button
@@ -124,7 +124,7 @@ export default function ProductGrid() {
       </div>
 
       {selectedProducts.length > 0 && (
-        <div className="sticky top-[calc(7.75rem+3.25rem)] z-40 -mx-4 mt-3 flex flex-wrap items-center justify-between gap-3 border border-brand-accent/40 bg-brand-primary px-4 py-3 md:-mx-6 md:px-6">
+        <div className="-mx-4 mt-3 flex flex-wrap items-center justify-between gap-3 border border-brand-accent/40 bg-brand-primary px-4 py-3 md:-mx-6 md:px-6">
           <p className="text-sm font-medium text-white">
             {selectedProducts.length} product{selectedProducts.length !== 1 ? 's' : ''} selected
           </p>

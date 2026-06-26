@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import { Badge } from '@/components/ui/badge'
@@ -121,19 +121,46 @@ const factItemVariants = {
 
 export default function LifecycleExplorer() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const activeStage = stages[activeIndex]
   const prefersReducedMotion = useReducedMotion()
   const progress = ((activeIndex + 1) / stages.length) * 100
+  const stageNavRef = useRef<HTMLDivElement | null>(null)
+  const stageButtonRefs = useRef<Array<HTMLButtonElement | null>>([])
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % stages.length)
+    }, 2000)
+
+    return () => window.clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    const nav = stageNavRef.current
+    const button = stageButtonRefs.current[activeIndex]
+
+    if (nav && button) {
+      const targetLeft = button.offsetLeft + button.offsetWidth / 2 - nav.clientWidth / 2
+      nav.scrollTo({
+        left: targetLeft,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      })
+    }
+  }, [activeIndex, prefersReducedMotion])
+
+  const activeStage = stages[activeIndex]
 
   return (
     <section className="bg-[#F7FAF6] py-16">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="mb-8 overflow-hidden rounded-[32px] border border-slate-200 bg-white p-4 shadow-sm">
-          <div className="no-scrollbar flex items-center gap-4 overflow-x-auto px-2 py-4">
+          <div ref={stageNavRef} className="no-scrollbar flex items-center gap-4 overflow-x-auto px-2 py-4">
             {stages.map((stage, index) => (
               <div key={stage.id} className="flex items-center gap-4">
                 <button
                   type="button"
+                  ref={(element) => {
+                    stageButtonRefs.current[index] = element
+                  }}
                   onClick={() => setActiveIndex(index)}
                   className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 bg-white text-2xl shadow-sm transition-all focus:outline-none"
                   style={{
