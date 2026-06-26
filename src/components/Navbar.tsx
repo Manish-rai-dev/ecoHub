@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -140,28 +140,28 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-[#1B4D2E] lg:hidden">
+        <div className="border-t border-white/10 bg-[#1B4D2E] lg:hidden relative z-50">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4" aria-label="Mobile navigation">
             {navLinks.map((link) => {
               if (link.children) {
                 return (
-                  <div key={link.href}>
+                  <div className="relative z-50" key={link.href}>
                     <button
                       type="button"
                       onClick={() => setProductsOpen((p) => !p)}
-                      className="flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+                      className="flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white relative z-50"
                     >
                       {link.label}
-                      <ChevronDown className={cn('h-4 w-4 transition-transform', productsOpen && 'rotate-180')} />
+                      <ChevronDown className={cn('h-4 w-4 relative z-50 transition-transform', productsOpen && 'rotate-180')} />
                     </button>
                     {productsOpen && (
-                      <div className="ml-3 border-l border-white/10 pl-3">
+                      <div className="ml-3 border-l border-white/10 pl-3 flex flex-col gap-1 relative z-50">
                         {link.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
                             onClick={() => setOpen(false)}
-                            className="block rounded-md px-3 py-2 text-sm text-white/80 hover:bg-white/10 hover:text-white"
+                            className="block rounded-md px-3 py-2 text-sm text-white/80 hover:bg-white/10 hover:text-white relative z-50"
                           >
                             {child.label}
                           </Link>
