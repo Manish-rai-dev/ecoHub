@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
@@ -9,10 +8,8 @@ import FeaturedProducts from '@/components/FeaturedProducts'
 import ProductIllustration from '@/components/ProductIllustration'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import { Badge } from '@/components/ui/badge'
-import { buttonVariants } from '@/components/ui/button'
 import { company } from '@/lib/company'
-import { cn } from '@/lib/utils'
-import { ArrowRight, Star } from 'lucide-react'
+import { ArrowRight, Heart, Leaf, ShieldCheck, Star } from 'lucide-react'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -127,19 +124,19 @@ function LeafIcon({ className }: { className?: string }) {
 
 const safeForYou = [
   {
-    emoji: '🛡️',
     title: 'Safe for your food',
     description: 'Food-grade certified, zero chemical leaching',
+    Icon: ShieldCheck,
   },
   {
-    emoji: '❤️',
     title: 'Safe for your family',
     description: 'No BPA, no styrene, no toxic coatings',
+    Icon: Heart,
   },
   {
-    emoji: '🌿',
     title: 'Safe for the planet',
     description: 'Biodegrades in 90–150 days, zero microplastics',
+    Icon: Leaf,
   },
 ]
 
@@ -148,29 +145,6 @@ const circularStats = [
   { value: '69%', label: 'lower CO₂ vs plastic' },
   { value: '90%', label: "of India's bagasse is burned today — we upcycle it" },
   { value: '90–150 days', label: 'full biodegradation' },
-]
-
-const testimonials = [
-  {
-    quote:
-      'We switched our cloud kitchen to Yaha Mogi 10" 3CP plates. No leaks, no sogginess. Our customers love the eco angle.',
-    author: 'Amit Verma, Zaika Cloud Kitchen, Varanasi',
-  },
-  {
-    quote:
-      'The 12" 4CP plates are a hit at our wedding catering. Raghav bhai responds within the hour on WhatsApp.',
-    author: 'Priya Shukla, Caterer, Gorakhpur',
-  },
-  {
-    quote:
-      'Excellent service, fast delivery and durable compostable plates. Perfect for our restaurant rush.',
-    author: 'Rajesh Mishra, Cafe Chaiwala, Varanasi',
-  },
-  {
-    quote:
-      'The customer support is clear, the packaging is strong, and the products are exactly what we needed for our event.',
-    author: 'Nidhi Sharma, Event Planner, Lucknow',
-  },
 ]
 
 const reviewWall = [
@@ -391,26 +365,23 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* Comparison table */}
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <ComparisonTable />
-        </div>
-      </section>
-
       {/* Safe for you */}
-      <section className="bg-brand-primary py-16 text-white">
+      <section className="bg-[#EAF5ED] py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <h2 className="mb-10 text-center text-3xl font-bold">Safe For You</h2>
+          <h2 className="mb-12 text-center text-[2rem] font-bold text-[#1B4D2E]">
+            Safe For You
+          </h2>
           <div className="grid gap-6 md:grid-cols-3">
             {safeForYou.map((card) => (
               <div
                 key={card.title}
-                className="rounded-xl border border-brand-secondary/50 bg-brand-dark/30 p-6 text-center"
+                className="rounded-[16px] border border-[#D8EBD8] bg-white p-8 text-center shadow-[0_2px_12px_rgba(27,77,46,0.07)] transition-all duration-200 hover:-translate-y-1 hover:border-[#3DAF5C] hover:shadow-[0_6px_24px_rgba(27,77,46,0.12)]"
               >
-                <p className="text-3xl">{card.emoji}</p>
-                <h3 className="mt-4 font-semibold text-brand-accent">{card.title}</h3>
-                <p className="mt-2 text-sm text-brand-text-on-green">{card.description}</p>
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-[#C0DEC2] bg-[#EAF5ED] text-[#1B7A3E]">
+                  <card.Icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-[#1B4D2E]">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#5A6B5A]">{card.description}</p>
               </div>
             ))}
           </div>
@@ -418,33 +389,45 @@ export default function HomePageClient() {
       </section>
 
       {/* Circular economy */}
-      <section className="bg-brand-light py-16">
+      <section className="bg-[#EAF5ED] py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <h2 className="mb-10 text-center text-3xl font-bold text-brand-primary">
+          <h2 className="mb-12 text-center text-[2rem] font-bold text-[#1B4D2E]">
             Circular Economy Impact
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {circularStats.map((stat) => (
-              <div key={stat.label} className="rounded-xl border bg-white p-6 text-center shadow-sm">
-                <p className="text-2xl font-bold text-brand-secondary">{stat.value}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
+              <div key={stat.label} className="rounded-[16px] border border-[#D8EBD8] bg-white p-8 text-center shadow-sm">
+                <p className="text-[28px] font-bold text-[#1B4D2E]">{stat.value}</p>
+                <p className="mt-3 text-sm text-[#6B7C6B]">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Comparison table */}
+      <section className="bg-[#EAF5ED] py-20">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <div className="mb-10 text-center">
+            <h2 className="text-[2rem] font-bold text-[#1B4D2E]">How Bagasse Compares</h2>
+          </div>
+          <div className="mx-auto max-w-[960px] overflow-hidden rounded-[16px] border border-[#D8EBD8] bg-white shadow-[0_2px_16px_rgba(27,77,46,0.08)]">
+            <ComparisonTable />
+          </div>
+        </div>
+      </section>
+
       {/* Review wall */}
-      <section className="bg-[#F2F7EE] py-20">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="mb-12 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.45em] text-[#1B4D2E]/70">
               Trusted by restaurants, caterers and sustainability buyers
             </p>
-            <h2 className="mt-4 text-4xl font-extrabold tracking-tight text-brand-primary md:text-5xl">
+            <h2 className="mt-4 text-4xl font-extrabold tracking-tight text-[#1B4D2E] md:text-5xl">
               Buyer Reviews that speak for our quality
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-[#274D31]">
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-[#5A6B5A]">
               Authentic feedback from businesses using our bagasse plates and bowls every day — clear, strong, and compostable.
             </p>
           </div>
@@ -456,18 +439,21 @@ export default function HomePageClient() {
                 initial={{ opacity: 0, y: 22 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="rounded-[32px] border border-[#C8D8C4] bg-white p-8 shadow-[0_18px_50px_rgba(15,40,20,0.08)] transition-transform duration-300 hover:-translate-y-1"
+                className="rounded-[16px] border border-[#E8EEE8] bg-white p-8 shadow-[0_18px_50px_rgba(15,40,20,0.08)] transition-transform duration-300 hover:-translate-y-1"
               >
-                <div className="mb-4 flex items-center gap-2 text-[#D69F4A]">
-                  {Array.from({ length: item.rating }).map((_, starIndex) => (
-                    <Star key={starIndex} className="h-4 w-4" />
+                <div className="mb-4 flex items-center gap-2">
+                  {Array.from({ length: 5 }).map((_, starIndex) => (
+                    <Star
+                      key={starIndex}
+                      className="h-4 w-4"
+                      style={{ color: starIndex < item.rating ? '#C89A4E' : '#D8EBD8' }}
+                    />
                   ))}
-                  {item.rating < 5 && (
-                    <span className="text-xs text-[#6B6B6B]">{item.rating}.0</span>
-                  )}
                 </div>
-                <p className="text-base leading-8 text-[#1F3320]">“{item.quote}”</p>
-                <footer className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#15401D]">{item.author}</footer>
+                <p className="text-base leading-7 text-[#2D3D2D]">“{item.quote}”</p>
+                <footer className="mt-6 text-sm font-semibold uppercase tracking-[1px] text-[#1B4D2E]">
+                  {item.author}
+                </footer>
               </motion.div>
             ))}
           </div>
@@ -475,20 +461,20 @@ export default function HomePageClient() {
       </section>
 
       {/* Blog teaser */}
-      <section className="bg-brand-light py-16">
+      <section className="bg-[#F7F7F4] py-16">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <h2 className="mb-10 text-center text-3xl font-bold text-brand-primary">From Our Blog</h2>
+          <h2 className="mb-10 text-center text-3xl font-bold text-[#1B4D2E]">From Our Blog</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {blogPosts.map((post) => (
               <Link
                 key={post.title}
                 href="/blog"
-                className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                className="rounded-[16px] border border-[#E0EBE2] bg-white p-6 shadow-sm transition-shadow duration-200 hover:border-[#3DAF5C] hover:shadow-[0_4px_16px_rgba(27,77,46,0.10)]"
               >
-                <Badge className="mb-3 bg-brand-light text-brand-primary hover:bg-brand-light">
+                <Badge className="mb-3 inline-flex rounded-full bg-[#EAF5ED] px-3 py-1 text-[12px] font-semibold text-[#1B7A3E]">
                   {post.category}
                 </Badge>
-                <h3 className="font-semibold text-brand-primary">{post.title}</h3>
+                <h3 className="font-semibold text-[#1B4D2E] text-[16px]">{post.title}</h3>
               </Link>
             ))}
           </div>

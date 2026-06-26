@@ -1,6 +1,7 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
+import { Leaf } from 'lucide-react'
 
 const rows = [
   {
@@ -59,104 +60,112 @@ type Result = 'check' | 'partial' | 'x'
 function ResultIcon({ result }: { result: Result }) {
   if (result === 'check') {
     return (
-      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand-secondary text-xs text-white">
+      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#D4EDDA] text-[#1B7A3E] text-xs font-semibold">
         ✓
       </span>
     )
   }
+
   if (result === 'partial') {
     return (
-      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand-orange text-xs text-white">
-        ○
+      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#FEF3C7] text-[#B45309] text-xs font-semibold">
+        •
       </span>
     )
   }
+
   return (
-    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#FDECEA] text-[#C0392B] text-xs font-semibold">
       ✗
     </span>
   )
 }
 
-function BowlIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="15" height="15" className="inline-block" aria-hidden>
-      <path
-        d="M4 10 Q4 18 12 18 Q20 18 20 10 Q20 6 12 6 Q4 6 4 10Z"
-        fill="#f5eed8"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-    </svg>
-  )
+function ResultLabel({ result, label }: { result: Result; label: string }) {
+  if (result === 'check') {
+    return <span className="text-[12px] text-[#1B4D2E]">{label}</span>
+  }
+
+  if (result === 'partial') {
+    return <span className="text-[12px] text-[#7A5C00]">{label}</span>
+  }
+
+  return <span className="text-[12px] text-[#7A1B1B]">{label}</span>
 }
 
-interface ComparisonTableProps {
-  className?: string
-}
-
-export default function ComparisonTable({ className }: ComparisonTableProps) {
+export default function ComparisonTable() {
   return (
-    <section className={className}>
-      <h2 className="mb-6 text-center text-3xl font-bold text-brand-primary">
-        How Bagasse Compares
-      </h2>
-      <div className="overflow-x-auto rounded-xl border shadow-sm">
-        <table className="w-full min-w-[640px] border-collapse text-sm">
-          <thead>
-            <tr className="bg-brand-primary text-white">
-              <th className="p-3 text-left font-semibold">Attribute</th>
-              <th className="bg-brand-light p-3 text-center font-semibold text-brand-primary">
-                <span className="block whitespace-pre-line">
-                  Compostable{'\n'}Bagasse Plates
+    <div className="overflow-x-auto">
+      <table className="w-full min-w-[720px] border-separate border-spacing-0 text-sm">
+        <thead>
+          <tr className="bg-white border-b-2 border-[#D8EBD8]">
+            <th className="whitespace-nowrap px-5 py-4 text-left text-[13px] font-semibold uppercase tracking-[0.5px] text-[#1B4D2E] bg-white">
+              Attribute
+            </th>
+            <th className="whitespace-nowrap px-5 py-4 text-center font-bold text-white bg-[#1B4D2E]">
+              <div className="flex flex-col items-center gap-2">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#EAF5ED] text-[#1B7A3E]">
+                  <Leaf className="h-4 w-4" />
                 </span>
-                <BowlIcon />
-              </th>
-              <th className="p-3 text-center font-semibold">Paper Plates</th>
-              <th className="p-3 text-center font-semibold">Foam Plates</th>
-              <th className="p-3 text-center font-semibold">Plastic Plates</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row, index) => (
-              <motion.tr
-                key={row.attribute}
-                className={index % 2 === 1 ? 'bg-muted/30' : ''}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.45, delay: index * 0.05 }}
+                <span>Compostable Bagasse Plates</span>
+              </div>
+            </th>
+            <th className="whitespace-nowrap px-5 py-4 text-center font-medium text-[#4A5568] bg-[#F5F5F2]">
+              Paper Plates
+            </th>
+            <th className="whitespace-nowrap px-5 py-4 text-center font-medium text-[#4A5568] bg-[#F5F5F2]">
+              Foam Plates
+            </th>
+            <th className="whitespace-nowrap px-5 py-4 text-center font-medium text-[#4A5568] bg-[#F5F5F2]">
+              Plastic Plates
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <motion.tr
+              key={row.attribute}
+              className={`${index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAF8]'} hover:bg-[#EAF5ED]`}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.45, delay: index * 0.05 }}
+            >
+              <td className="whitespace-nowrap border-r border-[#E8EEE8] px-5 py-4 text-left font-semibold text-[#1B4D2E] text-sm">
+                {row.attribute}
+              </td>
+              <td
+                className={`px-5 py-4 text-center font-semibold text-[#1B4D2E] bg-[#EAF5ED] border-l-2 border-r-2 border-[#3DAF5C] ${
+                  index === rows.length - 1 ? 'rounded-bl-[12px] rounded-br-[12px] border-b-2 border-[#3DAF5C]' : ''
+                }`}
               >
-                <td className="bg-brand-primary p-3 font-semibold text-white">{row.attribute}</td>
-                <td className="bg-brand-light p-3 text-center">
-                  <div className="flex flex-col items-center gap-1">
-                    <ResultIcon result={row.bagasse.result} />
-                    <span className="text-xs text-brand-primary">{row.bagasse.value}</span>
-                  </div>
-                </td>
-                <td className="p-3 text-center">
-                  <div className="flex flex-col items-center gap-1">
-                    <ResultIcon result={row.paper.result} />
-                    <span className="text-xs">{row.paper.value}</span>
-                  </div>
-                </td>
-                <td className="p-3 text-center">
-                  <div className="flex flex-col items-center gap-1">
-                    <ResultIcon result={row.foam.result} />
-                    <span className="text-xs">{row.foam.value}</span>
-                  </div>
-                </td>
-                <td className="p-3 text-center">
-                  <div className="flex flex-col items-center gap-1">
-                    <ResultIcon result={row.plastic.result} />
-                    <span className="text-xs">{row.plastic.value}</span>
-                  </div>
-                </td>
-              </motion.tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+                <div className="flex flex-col items-center gap-2">
+                  <ResultIcon result={row.bagasse.result} />
+                  <ResultLabel result={row.bagasse.result} label={row.bagasse.value} />
+                </div>
+              </td>
+              <td className="px-5 py-4 text-center">
+                <div className="flex flex-col items-center gap-2">
+                  <ResultIcon result={row.paper.result} />
+                  <ResultLabel result={row.paper.result} label={row.paper.value} />
+                </div>
+              </td>
+              <td className="px-5 py-4 text-center">
+                <div className="flex flex-col items-center gap-2">
+                  <ResultIcon result={row.foam.result} />
+                  <ResultLabel result={row.foam.result} label={row.foam.value} />
+                </div>
+              </td>
+              <td className="px-5 py-4 text-center">
+                <div className="flex flex-col items-center gap-2">
+                  <ResultIcon result={row.plastic.result} />
+                  <ResultLabel result={row.plastic.result} label={row.plastic.value} />
+                </div>
+              </td>
+            </motion.tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
