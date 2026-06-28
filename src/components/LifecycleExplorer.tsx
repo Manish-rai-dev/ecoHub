@@ -39,10 +39,10 @@ const stages = [
     tag: 'Manufacturing',
     description:
       'Steam and pressure form bagasse into sturdy plates, bowls and compartment tableware in a single clean process.',
-    facts: ['180–220°C', 'hydraulic pressure', 'zero binders', '15 SKUs formed'],
+    facts: ['180–220°C', 'hydraulic pressure', 'zero binders', '14 SKUs available'],
     bg: '#FEE8E0',
     border: '#E64A19',
-    products: ['Round Plates', 'Bowls', 'Compartment', 'Special Range'],
+    products: ['Plain Plates', 'Bowls', 'Compartment Trays', 'Special Serveware'],
     ecoInsight:
       'The moulding process fuses natural fibres into strong tableware without plastic or chemical coatings.',
   },

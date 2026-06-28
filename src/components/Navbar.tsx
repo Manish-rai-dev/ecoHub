@@ -17,9 +17,9 @@ const navLinks = [
     label: 'Products',
     children: [
       { href: '/products?cat=bowls', label: 'Bowls' },
-      { href: '/products?cat=plates', label: 'Round Plates' },
-      { href: '/products?cat=compartment', label: 'Compartment Plates' },
-      { href: '/products?cat=special', label: 'Special Range' },
+      { href: '/products?cat=plates', label: 'Plain Plates' },
+      { href: '/products?cat=compartment', label: 'Compartment Plates & Trays' },
+      { href: '/products?cat=special', label: 'Special Serveware' },
     ],
   },
   { href: '/lifecycle', label: 'Lifecycle' },

@@ -2,8 +2,8 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { Check, X } from 'lucide-react'
+import Image from 'next/image'
 import { useEffect } from 'react'
-import ProductIllustration from '@/components/ProductIllustration'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { categoryLabels, type Product } from '@/lib/products'
@@ -29,6 +29,19 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
       document.body.style.overflow = ''
     }
   }, [product, onClose])
+
+  const specificationRows = product
+    ? [
+        ...product.details.map((detail) => [detail.label, detail.value]),
+        ...(product.grammage ? [['Grammage', product.grammage]] : []),
+        ...(product.pcsPerBox
+          ? [['Pcs / Box', product.pcsPerBox.toLocaleString('en-IN')]]
+          : []),
+        ...(product.pcsPerPack ? [['Pack size', `${product.pcsPerPack} pcs/pack`]] : []),
+        ['Min. order', '1 box'],
+        ['Category', categoryLabels[product.category]],
+      ]
+    : []
 
   return (
     <AnimatePresence>
@@ -68,8 +81,14 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
             <div className="flex-1 overflow-y-auto pb-28">
               <div className="bg-[#f5f0e8] px-6 py-6 text-center">
-                <div className="flex justify-center">
-                  <ProductIllustration shape={product.shape} size="lg" />
+                <div className="relative aspect-square w-full overflow-hidden rounded-lg">
+                  <Image
+                    src={product.image}
+                    alt={product.imageAlt}
+                    fill
+                    sizes="(max-width: 480px) 100vw, 480px"
+                    className="object-contain"
+                  />
                 </div>
                 {product.badge && (
                   <Badge className="mt-4 bg-brand-orange text-white hover:bg-brand-orange">
@@ -91,13 +110,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               </div>
 
               <div className="mx-5 mb-4 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-brand-light">
-                {[
-                  ['Grammage', product.grammage],
-                  ['Pcs / Box', product.pcsPerBox.toLocaleString('en-IN')],
-                  ['Pack size', `${product.pcsPerPack} pcs/pack`],
-                  ['Min. order', '1 box'],
-                  ['Category', categoryLabels[product.category]],
-                ].map(([label, value], i) => (
+                {specificationRows.map(([label, value], i) => (
                   <div
                     key={label}
                     className={cn('grid grid-cols-1 gap-1 p-3', i % 2 === 0 ? 'bg-brand-light' : 'bg-white')}

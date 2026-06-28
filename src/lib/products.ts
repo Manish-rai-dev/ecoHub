@@ -1,253 +1,366 @@
-﻿// ─────────────────────────────────────────────
+// ─────────────────────────────────────────────
 // lib/products.ts — Yaha Mogi Ecohub LLP
-// Source: verified inventory sheets June 2026
+// Catalog images supplied June 2026.
+// Packing and weight values are included only for SKUs that match the
+// previously verified inventory sheet.
 // ─────────────────────────────────────────────
 
 export type Category = 'bowls' | 'plates' | 'compartment' | 'special'
+
+export interface ProductDetail {
+  label: string
+  value: string
+}
 
 export interface Product {
   id: number
   name: string
   displayName: string
-  grammage: string
-  pcsPerBox: number
-  pcsPerPack: number
+  image: string
+  imageAlt: string
+  details: ProductDetail[]
+  grammage?: string
+  pcsPerBox?: number
+  pcsPerPack?: number
   category: Category
   description: string
   features: string[]
   useCases: string[]
-  shape: 'bowl-sm' | 'bowl-md' | 'bowl-lg' | 'plate-round' | 'plate-3cp-rect' | 'plate-3cp-round' | 'plate-4cp-round' | 'plate-snack'
+  shape:
+    | 'bowl-sm'
+    | 'bowl-md'
+    | 'bowl-lg'
+    | 'plate-round'
+    | 'plate-3cp-rect'
+    | 'plate-3cp-round'
+    | 'plate-4cp-round'
+    | 'plate-snack'
   badge?: string
 }
 // NOTE: pricePerPc is intentionally omitted. All pricing is by enquiry only.
 
+const standardFeatures = [
+  '100% natural bagasse',
+  'Biodegradable & compostable',
+  'Leak & oil resistant',
+  'Microwave safe',
+  'Freezer safe',
+]
+
 export const products: Product[] = [
   {
     id: 1,
-    name: '150 ML BOWL',
-    displayName: '150 ML Bowl',
-    grammage: '4 GM ±10%',
-    pcsPerBox: 2700,
-    pcsPerPack: 50,
+    name: '120 ML KIWI BOWL',
+    displayName: '120 ml Kiwi Bowl',
+    image: '/Assests/120MLKIWIBOWL.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 120 ml kiwi bowl made from bagasse',
+    details: [
+      { label: 'Capacity', value: '120 ml' },
+      { label: 'Style', value: 'Kiwi bowl' },
+    ],
     category: 'bowls',
-    description: 'Compact sauce and chutney bowl. Perfect for thali setups and condiment service.',
-    features: ['Leak resistant', 'Microwave safe', 'Freezer safe', 'Food grade certified', 'Oil resistant'],
-    useCases: ['Thali chutney', 'Sauce portions', 'Snack condiments', 'Catering sides'],
+    description:
+      'A compact kiwi-style bowl for sauces, chutneys, dips, desserts and tasting portions.',
+    features: standardFeatures,
+    useCases: ['Chutneys', 'Dips & sauces', 'Desserts', 'Tasting portions'],
     shape: 'bowl-sm',
-    badge: 'Best value',
+    badge: 'Compact serve',
   },
   {
     id: 2,
     name: '180 ML BOWL',
-    displayName: '180 ML Bowl',
+    displayName: '180 ml Bowl',
+    image: '/Assests/180MLBOWL.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 180 ml round bagasse bowl',
+    details: [
+      { label: 'Capacity', value: '180 ml' },
+      { label: 'Format', value: 'Round bowl' },
+    ],
     grammage: '4.5 GM ±10%',
     pcsPerBox: 2400,
     pcsPerPack: 50,
     category: 'bowls',
-    description: 'Slightly larger than the 150ML — ideal for dal, raita and dessert portions.',
-    features: ['Leak resistant', 'Microwave safe', 'Freezer safe', 'Food grade certified'],
+    description:
+      'A versatile single-serve bowl suited to dal, raita, desserts and side portions.',
+    features: standardFeatures,
     useCases: ['Dal portions', 'Raita', 'Desserts', 'Thali service'],
     shape: 'bowl-sm',
   },
   {
-    id: 3,
-    name: '360 ML BOWL',
-    displayName: '360 ML Bowl',
-    grammage: '8 GM ±10%',
-    pcsPerBox: 2000,
-    pcsPerPack: 25,
-    category: 'bowls',
-    description: 'Our most popular bowl — perfect for biryani, noodles and hearty curries.',
-    features: ['Deep walls', 'Leak resistant', 'Microwave safe', 'Food grade certified', 'Oil resistant'],
-    useCases: ['Biryani', 'Noodles', 'Curries', 'Catering', 'Cloud kitchen delivery'],
-    shape: 'bowl-md',
-    badge: 'Top seller',
-  },
-  {
-    id: 4,
+    id: 13,
     name: '240 ML BOWL',
-    displayName: '240 ML Bowl',
+    displayName: '240 ml Bowl',
+    image: '/Assests/240MLBOWL.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 240 ml round bagasse bowl',
+    details: [
+      { label: 'Capacity', value: '240 ml' },
+      { label: 'Format', value: 'Round bowl' },
+    ],
     grammage: '6 GM ±10%',
     pcsPerBox: 2000,
     pcsPerPack: 50,
     category: 'bowls',
-    description: 'Mid-size bowl for soups, single-serve desserts and medium curry portions.',
-    features: ['Leak resistant', 'Microwave safe', 'Freezer safe', 'Food grade certified'],
-    useCases: ['Soups', 'Curries', 'Ice cream', 'Medium portions'],
+    description:
+      'A medium-capacity bowl for soups, curries, desserts and generous side portions.',
+    features: standardFeatures,
+    useCases: ['Soups', 'Curries', 'Desserts', 'Medium portions'],
     shape: 'bowl-md',
-    badge: 'New',
   },
   {
-    id: 5,
-    name: '6" ROUND PLATE',
-    displayName: '6" Round Plate',
+    id: 14,
+    name: '360 ML BOWL',
+    displayName: '360 ml Bowl',
+    image: '/Assests/360MLBOWL.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 360 ml round bagasse bowl',
+    details: [
+      { label: 'Capacity', value: '360 ml' },
+      { label: 'Format', value: 'Round bowl' },
+    ],
+    grammage: '8 GM ±10%',
+    pcsPerBox: 2000,
+    pcsPerPack: 25,
+    category: 'bowls',
+    description:
+      'A deep, generous bowl for biryani, noodles, curries and complete single-serve meals.',
+    features: standardFeatures,
+    useCases: ['Biryani', 'Noodles', 'Curries', 'Cloud kitchen delivery'],
+    shape: 'bowl-md',
+    badge: 'Large bowl',
+  },
+  {
+    id: 3,
+    name: '6" PLAIN PLATE',
+    displayName: '6" Plain Plate',
+    image: '/Assests/6InchPlainPlate.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 6 inch plain round bagasse plate',
+    details: [
+      { label: 'Size', value: '6 inch' },
+      { label: 'Format', value: 'Plain round plate' },
+    ],
     grammage: '5.2 GM ±10%',
     pcsPerBox: 2400,
     pcsPerPack: 50,
     category: 'plates',
-    description: 'Small round plate for starters, snacks and kids meals. Ideal for snack stations.',
-    features: ['Sturdy rim', 'Food grade certified', 'Water & oil proof', 'Microwave safe'],
-    useCases: ['Starters', 'Kids meals', 'Snack stations', 'Chaat service'],
+    description:
+      'A compact plain plate for appetisers, snacks, desserts and small servings.',
+    features: standardFeatures,
+    useCases: ['Starters', 'Desserts', 'Snack service', 'Kids portions'],
     shape: 'plate-round',
   },
   {
-    id: 6,
-    name: '7" ROUND PLATE',
-    displayName: '7" Round Plate',
+    id: 4,
+    name: '7" PLAIN PLATE',
+    displayName: '7" Plain Plate',
+    image: '/Assests/7InchPlainPlate.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 7 inch plain round bagasse plate',
+    details: [
+      { label: 'Size', value: '7 inch' },
+      { label: 'Format', value: 'Plain round plate' },
+    ],
     grammage: '7.5 GM ±10%',
     pcsPerBox: 1800,
     pcsPerPack: 50,
     category: 'plates',
-    description: 'Versatile mid-size round plate for starters, snacks and side dishes.',
-    features: ['Deep rim', 'Microwave safe', 'Freezer safe', 'Water & oil proof'],
-    useCases: ['Starters', 'Side dishes', 'Snack portions', 'Street food'],
+    description:
+      'A versatile plain plate for starters, chaat, snacks and side dishes.',
+    features: standardFeatures,
+    useCases: ['Starters', 'Chaat', 'Side dishes', 'Street food'],
     shape: 'plate-round',
   },
   {
-    id: 7,
-    name: '9" ROUND PLATE',
-    displayName: '9" Round Plate',
+    id: 5,
+    name: '9" PLAIN PLATE',
+    displayName: '9" Plain Plate',
+    image: '/Assests/9InchPlainPlate.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 9 inch plain round bagasse plate',
+    details: [
+      { label: 'Size', value: '9 inch' },
+      { label: 'Format', value: 'Plain round plate' },
+    ],
     grammage: '14 GM ±10%',
     pcsPerBox: 1000,
     pcsPerPack: 25,
     category: 'plates',
-    description: 'Full-size dinner plate for restaurants and catering. Holds full meals without flexing.',
-    features: ['Heavy duty', 'Deep rim', 'Microwave safe', 'Water & oil proof', 'Food grade certified'],
-    useCases: ['Full meals', 'Restaurant service', 'Catering', 'Lunch boxes'],
+    description:
+      'A full-size plain plate for everyday meals, restaurant service and catering.',
+    features: standardFeatures,
+    useCases: ['Full meals', 'Restaurant service', 'Catering', 'Lunch service'],
     shape: 'plate-round',
     badge: 'Restaurant pick',
   },
   {
-    id: 8,
-    name: '10" ROUND PLATE',
-    displayName: '10" Round Plate',
-    grammage: '16 GM ±10%',
-    pcsPerBox: 1000,
-    pcsPerPack: 25,
-    category: 'plates',
-    description: 'Large dinner plate suitable for generous portions and full thali-style service.',
-    features: ['Extra sturdy', 'Microwave safe', 'Freezer safe', 'Food grade certified'],
-    useCases: ['Full thali', 'Dinner service', 'Large portions', 'Corporate canteens'],
-    shape: 'plate-round',
-  },
-  {
-    id: 9,
-    name: '11" ROUND PLATE',
-    displayName: '11" Round Plate',
-    grammage: '20 GM ±10%',
-    pcsPerBox: 600,
-    pcsPerPack: 25,
-    category: 'plates',
-    description: 'Premium large plate for upscale catering and full-course dinner service.',
-    features: ['Premium thickness', 'Microwave safe', 'Water & oil proof', 'Food grade certified'],
-    useCases: ['Premium catering', 'Full-course service', 'Hotel banquets'],
-    shape: 'plate-round',
-  },
-  {
-    id: 10,
-    name: '12" ROUND PLATE',
-    displayName: '12" Round Plate',
+    id: 6,
+    name: '12" PLAIN PLATE',
+    displayName: '12" Plain Plate',
+    image: '/Assests/12InchPlainPlate.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 12 inch plain round bagasse plate',
+    details: [
+      { label: 'Size', value: '12 inch' },
+      { label: 'Format', value: 'Plain round plate' },
+    ],
     grammage: '27 GM ±10%',
     pcsPerBox: 500,
     pcsPerPack: 25,
     category: 'plates',
-    description: 'Largest round plate — for generous thali spreads and large event catering.',
-    features: ['Maximum size', 'Extra sturdy', 'Microwave safe', 'Food grade certified'],
-    useCases: ['Large thali', 'Weddings', 'Corporate events', 'Buffet service'],
+    description:
+      'A generously sized plain plate for thalis, buffets and large meal portions.',
+    features: standardFeatures,
+    useCases: ['Large thali', 'Wedding catering', 'Buffets', 'Corporate events'],
     shape: 'plate-round',
-    badge: 'New',
+    badge: 'Large format',
   },
   {
-    id: 11,
-    name: '10" 3CP RECTANGLE PLATE',
-    displayName: '10" 3CP Rectangle Plate',
+    id: 7,
+    name: '10" 3CP RECTANGULAR PLATE',
+    displayName: '10" 3 CP Rectangular Plate',
+    image: '/Assests/10Inch3CP.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 10 inch three-compartment rectangular bagasse plate',
+    details: [
+      { label: 'Size', value: '10 inch' },
+      { label: 'Compartments', value: '3' },
+      { label: 'Format', value: 'Rectangular plate' },
+    ],
     grammage: '17 GM ±10%',
     pcsPerBox: 1000,
     pcsPerPack: 25,
     category: 'compartment',
-    description: 'Rectangular 3-compartment plate — ideal for cloud kitchen packaging and meal-prep delivery.',
-    features: ['3 sections', 'Rectangle format', 'Microwave safe', 'Leak resistant', 'Food grade certified'],
-    useCases: ['Cloud kitchens', 'Takeaway delivery', 'Meal prep', 'Corporate tiffin'],
+    description:
+      'A rectangular three-compartment plate that keeps mains and sides neatly separated.',
+    features: standardFeatures,
+    useCases: ['Cloud kitchens', 'Meal service', 'Takeaway', 'Corporate catering'],
     shape: 'plate-3cp-rect',
-    badge: 'Cloud kitchen fav',
+    badge: 'Cloud kitchen pick',
   },
   {
-    id: 12,
-    name: '10" 3CP ROUND PLATE',
-    displayName: '10" 3CP Round Plate',
-    grammage: '17.5 GM ±10%',
-    pcsPerBox: 700,
-    pcsPerPack: 25,
-    category: 'compartment',
-    description: 'Classic 3-compartment round plate — perfect thali layout in eco-friendly bagasse.',
-    features: ['3 sections', 'Round format', 'Microwave safe', 'Food grade certified', 'Oil resistant'],
-    useCases: ['Restaurant thali', 'Catering', 'Institutions', 'School canteens'],
-    shape: 'plate-3cp-round',
-    badge: 'Top seller',
-  },
-  {
-    id: 13,
-    name: '11" 4CP ROUND PLATE',
-    displayName: '11" 4CP Round Plate',
+    id: 8,
+    name: '11" 4CP BAGASSE PLATE',
+    displayName: '11" 4 CP Bagasse Plate',
+    image: '/Assests/11Inch4CP.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub 11 inch four-compartment round bagasse plate',
+    details: [
+      { label: 'Size', value: '11 inch' },
+      { label: 'Compartments', value: '4' },
+      { label: 'Format', value: 'Round plate' },
+    ],
     grammage: '22 GM ±10%',
     pcsPerBox: 600,
     pcsPerPack: 25,
     category: 'compartment',
-    description: '4-compartment round plate — for full thali with main, dal, sabzi and salad.',
-    features: ['4 sections', 'Microwave safe', 'Water & oil proof', 'Food grade certified'],
-    useCases: ['Full thali', 'Weddings', 'Institutional canteens', 'Hospitals'],
+    description:
+      'A round four-compartment plate for serving a main course with multiple sides.',
+    features: standardFeatures,
+    useCases: ['Full thali', 'Weddings', 'Canteens', 'Institutional meals'],
     shape: 'plate-4cp-round',
+    badge: 'Thali pick',
   },
   {
-    id: 14,
-    name: '12" 4CP ROUND PLATE',
-    displayName: '12" 4CP Round Plate',
-    grammage: '27 GM ±10%',
-    pcsPerBox: 500,
-    pcsPerPack: 25,
+    id: 9,
+    name: '2CP SNACKS TRAY',
+    displayName: '2 CP Snacks Tray',
+    image: '/Assests/2CPSnackstray.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub two-compartment rectangular bagasse snacks tray',
+    details: [
+      { label: 'Compartments', value: '2' },
+      { label: 'Format', value: 'Rectangular tray' },
+    ],
     category: 'compartment',
-    description: 'Largest compartment plate — perfect for wedding buffets and full thali service.',
-    features: ['4 sections', 'Premium size', 'Microwave safe', 'Food grade certified', 'Heavy duty'],
-    useCases: ['Wedding buffets', 'Premium catering', 'Large thali', 'Festivals'],
-    shape: 'plate-4cp-round',
-    badge: 'Catering fav',
+    description:
+      'A compact two-compartment tray that separates snacks from dips, chutneys or accompaniments.',
+    features: standardFeatures,
+    useCases: ['Snacks & dip', 'Chaat', 'Café service', 'Event catering'],
+    shape: 'plate-3cp-rect',
   },
   {
-    id: 15,
-    name: 'SNACK PLATE',
-    displayName: 'Snack Plate',
-    grammage: '3.5 GM ±10%',
-    pcsPerBox: 3000,
-    pcsPerPack: 20,
+    id: 10,
+    name: 'FIVE COMPARTMENT REGULAR TRAY',
+    displayName: '5 Compartment Regular Tray',
+    image: '/Assests/5CPRegularTray.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub five-compartment rectangular bagasse meal tray',
+    details: [
+      { label: 'Compartments', value: '5' },
+      { label: 'Format', value: 'Rectangular meal tray' },
+    ],
+    category: 'compartment',
+    description:
+      'A five-compartment regular tray designed to organise a complete meal and its accompaniments.',
+    features: standardFeatures,
+    useCases: ['Complete meals', 'Canteens', 'Catering', 'Institutional service'],
+    shape: 'plate-3cp-rect',
+    badge: 'Complete meal',
+  },
+  {
+    id: 11,
+    name: 'THREE COMPARTMENT CHIP AND DIP TRAY',
+    displayName: '3 Compartment Chip & Dip Tray',
+    image: '/Assests/ThreeCompartmentChipandDipTray.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub three-compartment rectangular chip and dip bagasse tray',
+    details: [
+      { label: 'Compartments', value: '3' },
+      { label: 'Format', value: 'Chip & dip tray' },
+    ],
     category: 'special',
-    description: 'Lightweight shallow snack plate for samosas, pakoras, chaat and dry finger foods.',
-    features: ['Shallow design', 'Oil resistant', 'Food grade certified', 'Sturdy enough for dry foods'],
-    useCases: ['Snack service', 'Street food stalls', 'Evening snacks', 'Chai tapri', 'Catering starters'],
+    description:
+      'A three-compartment serving tray with a large snack section and two smaller dip sections.',
+    features: standardFeatures,
+    useCases: ['Chips & dips', 'Nachos', 'Party snacks', 'Catering starters'],
+    shape: 'plate-3cp-rect',
+  },
+  {
+    id: 12,
+    name: 'TRIANGULAR SNACK PLATE',
+    displayName: 'Triangular Snack Plate',
+    image: '/Assests/triangularSnackPlate.jpeg',
+    imageAlt: 'Yaha Mogi Ecohub triangular bagasse snack plate',
+    details: [
+      { label: 'Shape', value: 'Triangular' },
+      { label: 'Format', value: 'Snack plate' },
+    ],
+    category: 'special',
+    description:
+      'A distinctive triangular plate for individual snack, dessert and appetiser servings.',
+    features: standardFeatures,
+    useCases: ['Samosas', 'Desserts', 'Appetisers', 'Café service'],
     shape: 'plate-snack',
-    badge: 'New',
+    badge: 'Distinctive shape',
   },
 ]
 
 export const CATEGORIES = [
   { key: 'all', label: 'All Products', count: products.length },
-  { key: 'bowls', label: 'Bowls', count: products.filter((p) => p.category === 'bowls').length },
-  { key: 'plates', label: 'Round Plates', count: products.filter((p) => p.category === 'plates').length },
-  { key: 'compartment', label: 'Compartment Plates', count: products.filter((p) => p.category === 'compartment').length },
-  { key: 'special', label: 'Special Range', count: products.filter((p) => p.category === 'special').length },
+  {
+    key: 'bowls',
+    label: 'Bowls',
+    count: products.filter((product) => product.category === 'bowls').length,
+  },
+  {
+    key: 'plates',
+    label: 'Plain Plates',
+    count: products.filter((product) => product.category === 'plates').length,
+  },
+  {
+    key: 'compartment',
+    label: 'Compartment Plates & Trays',
+    count: products.filter((product) => product.category === 'compartment').length,
+  },
+  {
+    key: 'special',
+    label: 'Special Serveware',
+    count: products.filter((product) => product.category === 'special').length,
+  },
 ] as const
 
 export type CategoryFilter = (typeof CATEGORIES)[number]['key']
 
-export const featuredProductIds = [3, 12, 14]
+export const featuredProductIds = [1, 7, 10]
 
 export function getProductById(id: number): Product | undefined {
-  return products.find((p) => p.id === id)
+  return products.find((product) => product.id === id)
 }
 
 export const categoryLabels: Record<Category | 'all', string> = {
   all: 'All Products',
   bowls: 'Bowls',
-  plates: 'Round Plates',
-  compartment: 'Compartment Plates',
-  special: 'Special Range',
+  plates: 'Plain Plates',
+  compartment: 'Compartment Plates & Trays',
+  special: 'Special Serveware',
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import ProductIllustration from '@/components/ProductIllustration'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import type { Product } from '@/lib/products'
@@ -9,6 +8,7 @@ import { waProductEnquiry } from '@/lib/whatsapp'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
+import Image from 'next/image'
 
 interface ProductCardProps {
   product: Product
@@ -25,6 +25,12 @@ export default function ProductCard({
   selected = false,
   onToggleSelect,
 }: ProductCardProps) {
+  const summary = [
+    ...product.details.map((detail) => detail.value),
+    product.grammage,
+    product.pcsPerBox ? `${product.pcsPerBox.toLocaleString('en-IN')} pcs/box` : undefined,
+  ].filter(Boolean)
+
   function handleCardClick(e: React.MouseEvent) {
     if (!selectionMode || !onToggleSelect) return
     const target = e.target as HTMLElement
@@ -47,7 +53,7 @@ export default function ProductCard({
         selectionMode && 'cursor-pointer',
       )}
     >
-      <div className="relative flex h-[120px] items-center justify-center bg-brand-cream">
+      <div className="relative aspect-square overflow-hidden bg-brand-cream">
         {selectionMode && (
           <label className="absolute left-2 top-2 z-10 flex h-6 w-6 cursor-pointer items-center justify-center">
             <input
@@ -75,7 +81,13 @@ export default function ProductCard({
             {product.badge}
           </Badge>
         )}
-        <ProductIllustration shape={product.shape} size="sm" />
+        <Image
+          src={product.image}
+          alt={product.imageAlt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-contain"
+        />
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-4">
@@ -85,11 +97,10 @@ export default function ProductCard({
             {categoryLabels[product.category]}
           </Badge>
         </div>
-        <p className="text-xs text-muted-foreground">
-          {product.grammage} · {product.pcsPerBox.toLocaleString('en-IN')} pcs/box · Pack of{' '}
-          {product.pcsPerPack}
+        <p className="text-xs leading-relaxed text-muted-foreground">{summary.join(' · ')}</p>
+        <p className="text-sm italic text-brand-secondary">
+          Quote on enquiry — WhatsApp us for a quote.
         </p>
-        <p className="text-sm italic text-brand-secondary">Quote on enquiry — WhatsApp us for a quote.</p>
 
         <div className="mt-auto flex flex-col gap-2 pt-2">
           <motion.button

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: '%s | Yaha Mogi Ecohub',
   },
   description:
-    'Premium 100% biodegradable sugarcane bagasse plates and bowls sourced from trusted manufacturers across India. 15 SKUs — 150ML bowl to 12" 4CP plate. GST & FOR inclusive. Enquire for a quote. Serving restaurants, cloud kitchens and caterers nationwide.',
+    'Premium 100% biodegradable sugarcane bagasse plates, bowls, and serving trays sourced from trusted manufacturers across India. 14 SKUs — 120 ml kiwi bowl to five-compartment meal tray. GST & FOR inclusive. Enquire for a quote. Serving restaurants, cloud kitchens and caterers nationwide.',
   keywords: [
     'bagasse plates India',
     'eco tableware India',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Yaha Mogi Ecohub LLP | Bagasse Tableware | Made in India',
     description:
-      'Premium 100% biodegradable sugarcane bagasse plates and bowls sourced from trusted manufacturers across India. 15 SKUs. GST & FOR inclusive. Enquire for a quote.',
+      'Premium 100% biodegradable sugarcane bagasse plates, bowls, and serving trays sourced from trusted manufacturers across India. 14 SKUs. GST & FOR inclusive. Enquire for a quote.',
     images: ['/YM_ecohub_logo.jpeg'],
     locale: 'en_IN',
     type: 'website',

@@ -3,17 +3,24 @@ import type { Product } from '@/lib/products'
 export const WA_NUMBER = '919452936267'
 
 export function waProductEnquiry(product: Product): string {
+  const details = product.details.map((detail) => `• ${detail.label}: ${detail.value}`)
+  if (product.grammage) details.push(`• Grammage: ${product.grammage}`)
+  if (product.pcsPerBox) details.push(`• Box quantity: ${product.pcsPerBox} pcs`)
+  if (product.pcsPerPack) details.push(`• Pack size: ${product.pcsPerPack} pcs`)
+
   const msg =
     `Hi! I am interested in ordering *${product.displayName}*\n` +
-    `• Grammage: ${product.grammage}\n` +
-    `• Pack: ${product.pcsPerBox} pcs/box (${product.pcsPerPack} pcs/pack)\n\n` +
+    `${details.join('\n')}\n\n` +
     `Please share a quote, stock availability and delivery details for my location.`
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`
 }
 
 export function waMultiProductEnquiry(selected: Product[]): string {
   const lines = selected.map(
-    (p, i) => `${i + 1}. *${p.displayName}* — ${p.grammage} — ${p.pcsPerBox} pcs/box`,
+    (product, index) =>
+      `${index + 1}. *${product.displayName}* — ${product.details
+        .map((detail) => detail.value)
+        .join(', ')}`,
   ).join('\n')
   const msg =
     `Hi! I would like to enquire about the following products from Yaha Mogi Ecohub LLP:\n\n` +

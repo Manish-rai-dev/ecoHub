@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import ProductCard from '@/components/ProductCard'
 import ProductModal from '@/components/ProductModal'
@@ -22,10 +22,11 @@ export default function ProductGrid() {
   const catParam = searchParams.get('cat') as CategoryFilter | null
   const idParam = searchParams.get('id')
 
-  const [activeFilter, setActiveFilter] = useState<CategoryFilter>(
-    catParam && CATEGORIES.some((c) => c.key === catParam) ? catParam : 'all',
-  )
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const activeFilter: CategoryFilter =
+    catParam && CATEGORIES.some((category) => category.key === catParam) ? catParam : 'all'
+  const selectedProduct: Product | null = idParam
+    ? getProductById(Number(idParam)) ?? null
+    : null
   const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set())
 
   const filtered =
@@ -40,7 +41,6 @@ export default function ProductGrid() {
 
   const openModal = useCallback(
     (product: Product) => {
-      setSelectedProduct(product)
       const params = new URLSearchParams(searchParams.toString())
       params.set('id', String(product.id))
       router.push(`${pathname}?${params.toString()}`, { scroll: false })
@@ -49,7 +49,6 @@ export default function ProductGrid() {
   )
 
   const closeModal = useCallback(() => {
-    setSelectedProduct(null)
     const params = new URLSearchParams(searchParams.toString())
     params.delete('id')
     const query = params.toString()
@@ -72,23 +71,7 @@ export default function ProductGrid() {
     setSelectedIds(new Set())
   }
 
-  useEffect(() => {
-    if (catParam && CATEGORIES.some((c) => c.key === catParam)) {
-      setActiveFilter(catParam)
-    }
-  }, [catParam])
-
-  useEffect(() => {
-    if (idParam) {
-      const product = getProductById(Number(idParam))
-      if (product) setSelectedProduct(product)
-    } else {
-      setSelectedProduct(null)
-    }
-  }, [idParam])
-
   function handleFilterChange(key: CategoryFilter) {
-    setActiveFilter(key)
     const params = new URLSearchParams(searchParams.toString())
     if (key === 'all') {
       params.delete('cat')
@@ -96,7 +79,6 @@ export default function ProductGrid() {
       params.set('cat', key)
     }
     params.delete('id')
-    setSelectedProduct(null)
     const query = params.toString()
     router.push(query ? `${pathname}?${query}` : pathname, { scroll: false })
   }

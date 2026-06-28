@@ -5,7 +5,7 @@ const ITEMS = [
   { icon: 'ti-receipt-tax',     text: 'GST & FOR inclusive pricing' },
   { icon: 'ti-leaf',            text: '100% Biodegradable · 90–150 days' },
   { icon: 'ti-brand-whatsapp',  text: 'Order on WhatsApp: +91 9452936267' },
-  { icon: 'ti-package',         text: '15 SKUs · Min. 1 box per SKU' },
+  { icon: 'ti-package',         text: '14 SKUs · Min. 1 box per SKU' },
   { icon: 'ti-star',            text: 'Starting ₹0.85/pc · No hidden charges' },
   { icon: 'ti-users',           text: 'Bulk & distributor orders welcome' },
 ]

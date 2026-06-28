@@ -33,7 +33,7 @@ const jsonLd = {
 const heroStats = [
   { target: 93, suffix: '%', label: 'Lower CO₂ than paper' },
   { target: 90, suffix: '–150 days', label: 'Biodegrades fully' },
-  { target: 15, suffix: ' SKUs', label: 'Available now' },
+  { target: 14, suffix: ' SKUs', label: 'Available now' },
 ]
 
 function AnimatedStat({ target, suffix, label }: { target: number; suffix: string; label: string }) {
@@ -75,9 +75,9 @@ const impactBar = [
 
 const categoryTiles = [
   { key: 'bowls', label: 'Bowls', shape: 'bowl-md' as const, count: 4, icon: BowIcon },
-  { key: 'plates', label: 'Round Plates', shape: 'plate-round' as const, count: 6, icon: RoundPlateIcon },
-  { key: 'compartment', label: 'Compartment Plates', shape: 'plate-3cp-round' as const, count: 4, icon: CompartmentPlateIcon },
-  { key: 'special', label: 'Special Range', shape: 'plate-snack' as const, count: 1, icon: LeafIcon },
+  { key: 'plates', label: 'Plain Plates', shape: 'plate-round' as const, count: 4, icon: RoundPlateIcon },
+  { key: 'compartment', label: 'Compartment Plates & Trays', shape: 'plate-3cp-round' as const, count: 4, icon: CompartmentPlateIcon },
+  { key: 'special', label: 'Special Serveware', shape: 'plate-snack' as const, count: 2, icon: LeafIcon },
 ]
 
 function BowIcon({ className }: { className?: string }) {
@@ -358,7 +358,7 @@ export default function HomePageClient() {
               href="/products"
               className="inline-flex items-center text-sm font-semibold text-brand-secondary hover:text-brand-primary"
             >
-              View all 15 products
+              View all 14 products
               <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </div>

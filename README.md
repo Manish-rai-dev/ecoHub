@@ -68,7 +68,7 @@ The `postbuild` script automatically generates `sitemap.xml` and updates `robots
 |---|---|
 | `/` | Home — hero, stats, featured products, trust badges |
 | `/about` | Company story, bagasse vs plastic, certifications, directors |
-| `/products` | Full 12-SKU catalogue with category filters |
+| `/products` | Full 14-SKU catalogue with category filters |
 | `/lifecycle` | Product lifecycle timeline & environmental impact |
 | `/enterprise` | Bulk buyer, distributor, and institutional tiers |
 | `/contact` | Contact cards, map link, WhatsApp + email form |
@@ -104,7 +104,7 @@ src/
 ├── components/           # Shared UI components
 │   └── ui/               # shadcn/ui primitives
 └── lib/                  # Data & utilities
-    ├── products.ts       # 12-SKU product catalogue
+    ├── products.ts       # 14-SKU product catalogue
     ├── whatsapp.ts       # WhatsApp link builders
     └── company.ts        # Company details
 public/

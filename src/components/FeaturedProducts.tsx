@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, useCallback, useEffect, useState } from 'react'
+import { Suspense, useCallback } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import ProductCard from '@/components/ProductCard'
@@ -14,11 +14,11 @@ function FeaturedProductsInner() {
   const idParam = searchParams.get('id')
 
   const featured = products.filter((p) => featuredProductIds.includes(p.id))
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const selectedProduct: Product | null =
+    idParam && pathname === '/' ? getProductById(Number(idParam)) ?? null : null
 
   const openModal = useCallback(
     (product: Product) => {
-      setSelectedProduct(product)
       const params = new URLSearchParams(searchParams.toString())
       params.set('id', String(product.id))
       router.push(`${pathname}?${params.toString()}`, { scroll: false })
@@ -27,19 +27,11 @@ function FeaturedProductsInner() {
   )
 
   const closeModal = useCallback(() => {
-    setSelectedProduct(null)
     const params = new URLSearchParams(searchParams.toString())
     params.delete('id')
     const query = params.toString()
     router.push(query ? `${pathname}?${query}` : pathname, { scroll: false })
   }, [pathname, router, searchParams])
-
-  useEffect(() => {
-    if (idParam && pathname === '/') {
-      const product = getProductById(Number(idParam))
-      if (product) setSelectedProduct(product)
-    }
-  }, [idParam, pathname])
 
   return (
     <>
