@@ -37,8 +37,19 @@ export const metadata: Metadata = {
     type: 'website',
   },
   icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: [
+      {
+        url: '/YM_ecohub_logo.jpeg',
+        type: 'image/jpeg',
+      },
+    ],
+    shortcut: ['/YM_ecohub_logo.jpeg'],
+    apple: [
+      {
+        url: '/YM_ecohub_logo.jpeg',
+        type: 'image/jpeg',
+      },
+    ],
   },
 }
 

@@ -54,48 +54,52 @@ export default function ProductCard({
       )}
     >
       <div className="relative aspect-square overflow-hidden bg-brand-cream">
-        {selectionMode && (
-          <label className="absolute left-2 top-2 z-10 flex h-6 w-6 cursor-pointer items-center justify-center">
-            <input
-              type="checkbox"
-              checked={selected}
-              onChange={handleCheckboxChange}
-              onClick={(e) => e.stopPropagation()}
-              className="peer sr-only"
-              aria-label={`Select ${product.displayName}`}
-            />
-            <span
-              className={cn(
-                'flex h-5 w-5 items-center justify-center rounded border-2 bg-white transition-colors',
-                selected
-                  ? 'border-brand-primary bg-brand-primary text-white'
-                  : 'border-brand-secondary',
-              )}
-            >
-              {selected && <Check className="h-3 w-3" strokeWidth={3} />}
-            </span>
-          </label>
-        )}
-        {product.badge && (
-          <Badge className="absolute right-2 top-2 bg-brand-orange px-2 py-0.5 text-[8px] font-semibold text-white hover:bg-brand-orange">
-            {product.badge}
-          </Badge>
-        )}
-        <Image
-          src={product.image}
-          alt={product.imageAlt}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-contain"
-        />
+        <div className="absolute inset-3 sm:inset-4">
+          <Image
+            src={product.image}
+            alt={product.imageAlt}
+            fill
+            sizes="(max-width: 640px) calc(100vw - 56px), (max-width: 1024px) 45vw, 30vw"
+            className="object-contain object-center"
+          />
+        </div>
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <h3 className="text-[13px] font-medium text-brand-primary">{product.displayName}</h3>
-          <Badge className="rounded-full bg-brand-light px-2 py-0.5 text-[10px] font-semibold text-brand-primary">
-            {categoryLabels[product.category]}
-          </Badge>
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="text-[13px] font-medium text-brand-primary">{product.displayName}</h3>
+            <Badge className="rounded-full bg-brand-light px-2 py-0.5 text-[10px] font-semibold text-brand-primary">
+              {categoryLabels[product.category]}
+            </Badge>
+            {product.badge && (
+              <Badge className="bg-brand-orange px-2 py-0.5 text-[9px] font-semibold text-white hover:bg-brand-orange">
+                {product.badge}
+              </Badge>
+            )}
+          </div>
+          {selectionMode && (
+            <label className="flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center">
+              <input
+                type="checkbox"
+                checked={selected}
+                onChange={handleCheckboxChange}
+                onClick={(event) => event.stopPropagation()}
+                className="peer sr-only"
+                aria-label={`Select ${product.displayName}`}
+              />
+              <span
+                className={cn(
+                  'flex h-5 w-5 items-center justify-center rounded border-2 bg-white transition-colors',
+                  selected
+                    ? 'border-brand-primary bg-brand-primary text-white'
+                    : 'border-brand-secondary',
+                )}
+              >
+                {selected && <Check className="h-3 w-3" strokeWidth={3} />}
+              </span>
+            </label>
+          )}
         </div>
         <p className="text-xs leading-relaxed text-muted-foreground">{summary.join(' · ')}</p>
         <p className="text-sm italic text-brand-secondary">
