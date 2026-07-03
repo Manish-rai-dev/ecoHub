@@ -19,12 +19,51 @@ export function organizationSchema(): Record<string, unknown> {
     '@id': `${SITE_URL}/#organization`,
     name: SITE_NAME,
     alternateName: ['Yaha Mogi', 'YahaMogi', 'Yaha Mogi EcoHub'],
+    description:
+      'India-based supplier of biodegradable sugarcane bagasse plates, bowls, compartment plates and meal trays for bulk, wholesale and institutional orders.',
     url: SITE_URL,
     logo: absoluteUrl('/YM_ecohub_logo.jpeg'),
     email: company.email,
     telephone: company.whatsapp.replace(/\s/g, ''),
     taxID: company.gstin,
     sameAs: [company.instagramUrl],
+    areaServed: {
+      '@type': 'Country',
+      name: 'India',
+    },
+    knowsAbout: [
+      'Sugarcane bagasse tableware',
+      'Biodegradable disposable plates',
+      'Compostable food-service tableware',
+      'Compartment plates and meal trays',
+      'Bulk and wholesale tableware supply',
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Biodegradable Bagasse Tableware',
+      itemListElement: [
+        {
+          '@type': 'OfferCatalog',
+          name: 'Bagasse Bowls',
+          url: absoluteUrl('/products?cat=bowls'),
+        },
+        {
+          '@type': 'OfferCatalog',
+          name: 'Plain Bagasse Plates',
+          url: absoluteUrl('/products?cat=plates'),
+        },
+        {
+          '@type': 'OfferCatalog',
+          name: 'Compartment Plates and Meal Trays',
+          url: absoluteUrl('/products?cat=compartment'),
+        },
+        {
+          '@type': 'OfferCatalog',
+          name: 'Special Bagasse Serveware',
+          url: absoluteUrl('/products?cat=special'),
+        },
+      ],
+    },
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: company.whatsapp.replace(/\s/g, ''),
@@ -41,6 +80,8 @@ export function localBusinessSchema(): Record<string, unknown> {
     '@type': 'LocalBusiness',
     '@id': `${SITE_URL}/#localbusiness`,
     name: SITE_NAME,
+    description:
+      'Bagasse tableware supplier serving bulk buyers, restaurants, caterers, cloud kitchens, institutions and distributors across India.',
     image: absoluteUrl('/YM_ecohub_logo.jpeg'),
     url: SITE_URL,
     telephone: company.whatsapp.replace(/\s/g, ''),

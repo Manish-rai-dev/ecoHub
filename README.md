@@ -41,7 +41,7 @@ cp .env.local.example .env.local
 | `EMAIL_USER` | SMTP username |
 | `EMAIL_PASS` | SMTP password / app password |
 | `EMAIL_TO` | Recipient email (`yahamogiecohub@gmail.com`) |
-| `NEXT_PUBLIC_SITE_URL` | Production URL (e.g. `https://yahamogiecohub.com`) |
+| `NEXT_PUBLIC_SITE_URL` | Production URL (e.g. `https://yahamogiecohub.in`) |
 
 > For Gmail, use an [App Password](https://support.google.com/accounts/answer/185833) with 2FA enabled.
 

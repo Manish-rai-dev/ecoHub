@@ -1,13 +1,21 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
+import { buildMetadata } from '@/lib/seo'
 import { ArrowLeft } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Blog — Eco Tableware Insights',
+export const metadata = buildMetadata({
+  title: 'Bagasse & Biodegradable Tableware Guide',
   description:
-    'Articles on bagasse sustainability, restaurant tips, and India\'s single-use plastic ban from Yaha Mogi Ecohub LLP.',
-}
+    'Guides to bagasse plates, biodegradable tableware, compostable food trays, bulk buying and alternatives to paper and single-use plastic plates in India.',
+  path: '/blog',
+  keywords: [
+    'bagasse plates guide',
+    'biodegradable tableware blog',
+    'paper plate alternative India',
+    'plastic plate alternative India',
+    'bagasse plates for restaurants',
+  ],
+})
 
 const posts = [
   {

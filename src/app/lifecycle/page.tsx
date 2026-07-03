@@ -1,13 +1,22 @@
-import type { Metadata } from 'next'
 import LifecycleExplorer from '@/components/LifecycleExplorer'
 import WhatsAppCtaStrip from '@/components/WhatsAppCtaStrip'
+import { buildMetadata } from '@/lib/seo'
 import { Building2, ChefHat, PartyPopper } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Product Lifecycle — Field to Compost in 90–150 Days',
+export const metadata = buildMetadata({
+  title: 'How Sugarcane Bagasse Plates Are Made',
   description:
-    'Follow the journey of Yaha Mogi bagasse tableware from sugarcane fields through production, use, and full biodegradation in 90–150 days — zero microplastics.',
-}
+    'Learn how sugarcane fibre becomes biodegradable bagasse plates, bowls and compartment trays, from agricultural byproduct through moulding, food use and composting.',
+  path: '/lifecycle',
+  keywords: [
+    'how bagasse plates are made',
+    'sugarcane fibre disposable plates',
+    'are bagasse plates biodegradable',
+    'compostable plates lifecycle',
+    'bagasse vs paper plates',
+    'bagasse vs plastic plates',
+  ],
+})
 
 const impactMetrics = [
   {

@@ -11,25 +11,6 @@ import { Badge } from '@/components/ui/badge'
 import { company } from '@/lib/company'
 import { ArrowRight, Heart, Leaf, ShieldCheck, Star } from 'lucide-react'
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Yaha Mogi Ecohub LLP',
-  telephone: '+91-9452936267',
-  email: 'yahamogiecohub@gmail.com',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Near G.K. Hotel Utkarsh Tower Sehmalpur Jamalpur Shivpur',
-    addressLocality: 'Varanasi',
-    addressRegion: 'UP',
-    postalCode: '221105',
-    addressCountry: 'IN',
-  },
-  taxID: '09AAEFY0411H1ZD',
-  sameAs: ['https://instagram.com/yahamogiecohub'],
-  openingHours: 'Mo-Sa 09:00-19:00',
-}
-
 const heroStats = [
   { target: 93, suffix: '%', label: 'Lower CO₂ than paper' },
   { target: 90, suffix: '–150 days', label: 'Biodegrades fully' },
@@ -183,11 +164,6 @@ const blogPosts = [
 export default function HomePageClient() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#1B4D2E] text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-[1.1fr_0.9fr] md:px-6 md:py-24">
@@ -209,8 +185,9 @@ export default function HomePageClient() {
               </h1>
               <p className="max-w-2xl text-xl italic text-[#D4A853]">From the Fields of India, To Your Table</p>
               <p className="max-w-2xl text-base leading-[1.75] text-[#E8F5E9]">
-                Premium bagasse tableware sourced from trusted manufacturers across India with a focus on food-safe compostable plates and bowls. No hidden
-                charges, no printed prices — enquire for a custom quote.
+                Premium sugarcane bagasse tableware sourced from trusted manufacturers across India:
+                biodegradable plain plates, compartment plates, bowls and meal trays for wholesale
+                and bulk orders. No hidden charges, no printed prices — enquire for a custom quote.
               </p>
             </motion.div>
 
@@ -300,7 +277,8 @@ export default function HomePageClient() {
             <div>
               <h2 className="text-3xl font-bold text-brand-primary">Shop by Category</h2>
               <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-                Choose the right plates and bowls for your kitchen, event or delivery business.
+                Choose biodegradable bowls, plain plates, compartment thali plates and serving trays
+                for your kitchen, event, takeaway or delivery business.
               </p>
             </div>
           </div>

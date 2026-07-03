@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
 import ComparisonTable from '@/components/ComparisonTable'
 import WhatsAppCtaStrip from '@/components/WhatsAppCtaStrip'
 import { company } from '@/lib/company'
+import { buildMetadata } from '@/lib/seo'
 import {
   Award,
   Building2,
@@ -14,11 +14,18 @@ import {
   XCircle,
 } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'About Us — Varanasi Bagasse Tableware',
+export const metadata = buildMetadata({
+  title: 'About Our Bagasse Tableware Supply',
   description:
-    'Learn how Yaha Mogi Ecohub LLP is ending single-use plastic one plate at a time — direct sourcing, Varanasi roots, GST compliance, and certified bagasse tableware.',
-}
+    'Meet Yaha Mogi Ecohub, a Varanasi supplier of biodegradable sugarcane bagasse plates, bowls and food trays for food-service businesses across India.',
+  path: '/about',
+  keywords: [
+    'eco-friendly tableware company India',
+    'bagasse products company Varanasi',
+    'sugarcane tableware supplier Uttar Pradesh',
+    'plastic plate alternative supplier',
+  ],
+})
 
 const storyCards = [
   {

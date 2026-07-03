@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import StickyHeader from '@/components/StickyHeader'
 import Footer from '@/components/Footer'
 import { Toaster } from '@/components/ui/sonner'
+import { coreKeywords, SITE_URL } from '@/lib/seo'
 import './globals.css'
 
 const inter = Inter({
@@ -11,45 +12,21 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://yahamogiecohub.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Yaha Mogi Ecohub LLP | Bagasse Tableware | Made in India',
+    default: 'Yaha Mogi Ecohub LLP | Bagasse Plates Supplier India',
     template: '%s | Yaha Mogi Ecohub',
   },
   description:
-    'Premium 100% biodegradable sugarcane bagasse plates, bowls, and serving trays sourced from trusted manufacturers across India. 14 SKUs — 120 ml kiwi bowl to five-compartment meal tray. GST & FOR inclusive. Enquire for a quote. Serving restaurants, cloud kitchens and caterers nationwide.',
-  keywords: [
-    'bagasse plates India',
-    'eco tableware India',
-    'biodegradable plates wholesale India',
-    'sugarcane tableware',
-    'cloud kitchen plates India',
-    'eco tableware India',
-    'single use plastic alternative India',
-    'bagasse bowls 2026',
-  ],
+    'Bulk supplier of biodegradable sugarcane bagasse plates, bowls, compartment plates and meal trays in India. Wholesale orders for restaurants, caterers, cloud kitchens and distributors.',
+  keywords: [...coreKeywords],
   openGraph: {
-    title: 'Yaha Mogi Ecohub LLP | Bagasse Tableware | Made in India',
+    title: 'Yaha Mogi Ecohub LLP | Bagasse Plates Supplier India',
     description:
-      'Premium 100% biodegradable sugarcane bagasse plates, bowls, and serving trays sourced from trusted manufacturers across India. 14 SKUs. GST & FOR inclusive. Enquire for a quote.',
+      'Biodegradable bagasse plates, bowls and compartment meal trays for wholesale and bulk orders across India.',
     images: ['/YM_ecohub_logo.jpeg'],
     locale: 'en_IN',
     type: 'website',
-  },
-  icons: {
-    icon: [
-      {
-        url: '/YM_ecohub_logo.jpeg',
-        type: 'image/jpeg',
-      },
-    ],
-    shortcut: ['/YM_ecohub_logo.jpeg'],
-    apple: [
-      {
-        url: '/YM_ecohub_logo.jpeg',
-        type: 'image/jpeg',
-      },
-    ],
   },
 }
 

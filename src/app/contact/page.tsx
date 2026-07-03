@@ -1,15 +1,22 @@
-import type { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import { company } from '@/lib/company'
+import { buildMetadata } from '@/lib/seo'
 import { waGeneral } from '@/lib/whatsapp'
 import { Mail, MapPin } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Contact Us — Order Bagasse Tableware in Varanasi',
+export const metadata = buildMetadata({
+  title: 'Contact Bagasse Plates Supplier in Varanasi',
   description:
-    'Contact Yaha Mogi Ecohub LLP for bagasse tableware orders. WhatsApp +91 9452936267, email yahamogiecohub@gmail.com. Located in Shivpur, Varanasi.',
-}
+    'Contact Yaha Mogi Ecohub for bulk and wholesale orders of biodegradable bagasse plates, bowls and compartment trays in Varanasi and across India.',
+  path: '/contact',
+  keywords: [
+    'bagasse plates supplier Varanasi',
+    'biodegradable plates supplier Uttar Pradesh',
+    'compartment plate supplier near me',
+    'bulk disposable plates Varanasi',
+  ],
+})
 
 const contactCards = [
   {

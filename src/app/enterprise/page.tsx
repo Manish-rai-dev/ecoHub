@@ -1,18 +1,28 @@
-import type { Metadata } from 'next'
 import EnterpriseTimeline from '@/components/EnterpriseTimeline'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { company } from '@/lib/company'
+import { buildMetadata } from '@/lib/seo'
 import { waEnterprise } from '@/lib/whatsapp'
 import { cn } from '@/lib/utils'
 import { CheckCircle2, Globe, IndianRupee, Mail, MapPin, TrendingUp, Users } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Enterprise & Distributor Partnerships',
+export const metadata = buildMetadata({
+  title: 'Bulk Bagasse Plates Supplier & Partnerships',
   description:
-    'Partner with Yaha Mogi Ecohub LLP as a bulk buyer, wholesale distributor, or institutional supplier. GST-compliant, Purvanchal delivery, dedicated support.',
-}
+    'Source biodegradable bagasse plates, bowls and compartment trays in bulk. Wholesale, distributor and institutional supply partnerships with GST invoicing and pan-India support.',
+  path: '/enterprise',
+  keywords: [
+    'bulk bagasse plates supplier',
+    'bagasse plates distributorship',
+    'biodegradable products distributor India',
+    'institutional disposable plates supplier',
+    'restaurant tableware wholesale supplier',
+    'catering disposable plates bulk order',
+    'bagasse products B2B',
+  ],
+})
 
 const tiers = [
   {
@@ -83,8 +93,9 @@ export default function EnterprisePage() {
             Scale with Yaha Mogi Ecohub as your supply partner
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-brand-text-on-green">
-            Whether you run a restaurant chain, distribute across districts, or supply institutions
-            — we have a partnership tier designed for your volume and business model.
+            Whether you need biodegradable plates in bulk for a restaurant chain, distribute
+            bagasse products across districts, or procure compartment meal trays for institutions
+            — we have a supply tier designed for your volume and business model.
           </p>
         </div>
       </section>
